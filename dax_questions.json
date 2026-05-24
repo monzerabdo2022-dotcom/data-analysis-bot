@@ -2,88 +2,640 @@
   "en": {
     "Easy": [
       {
-        "question": "[Aggregation Function] What does the SUM function do in DAX?",
-        "answer": "🔹 **Type:** Aggregation Function\n🔹 **Definition:** Adds all the numbers in a column.\n\n💻 **Syntax:**\n`SUM(<column>)`\n\n💡 **Example:**\n`Total Quantity = SUM(Sales[Quantity])`"
+        "question": "[Aggregation] What does the SUM function do?",
+        "answer": "🔹 **Type:** Aggregation\n🔹 **Definition:** Adds all the numbers in a column.\n\n💻 **Syntax:**\n`SUM(<column>)`\n\n💡 **Example:**\n`Total Sales = SUM(Sales[Amount])`"
       },
       {
-        "question": "[Text Function] What is the purpose of the CONCATENATE function?",
-        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Joins two text strings into one text string.\n\n💻 **Syntax:**\n`CONCATENATE(<text1>, <text2>)`\n\n💡 **Example:**\n`Full Product Name = CONCATENATE(Products[Brand], Products[Model])`"
+        "question": "[Aggregation] What does the AVERAGE function do?",
+        "answer": "🔹 **Type:** Aggregation\n🔹 **Definition:** Returns the arithmetic mean of all the numbers in a column.\n\n💻 **Syntax:**\n`AVERAGE(<column>)`\n\n💡 **Example:**\n`Avg Revenue = AVERAGE(Sales[Amount])`"
       },
       {
-        "question": "[Logical Function] How does the IF function work in DAX?",
-        "answer": "🔹 **Type:** Logical Function\n🔹 **Definition:** Checks a condition, and returns one value when TRUE, otherwise it returns a second value.\n\n💻 **Syntax:**\n`IF(<logical_test>, <value_if_true>[, <value_if_false>])`\n\n💡 **Example:**\n`High Value Status = IF(Sales[Amount] > 1000, \"High\", \"Low\")`"
+        "question": "[Aggregation] What does the MIN function do?",
+        "answer": "🔹 **Type:** Aggregation\n🔹 **Definition:** Returns the smallest value in a column.\n\n💻 **Syntax:**\n`MIN(<column>)`\n\n💡 **Example:**\n`Lowest Price = MIN(Products[Price])`"
+      },
+      {
+        "question": "[Aggregation] What does the MAX function do?",
+        "answer": "🔹 **Type:** Aggregation\n🔹 **Definition:** Returns the largest value in a column.\n\n💻 **Syntax:**\n`MAX(<column>)`\n\n💡 **Example:**\n`Highest Price = MAX(Products[Price])`"
+      },
+      {
+        "question": "[Aggregation] What does the COUNT function do?",
+        "answer": "🔹 **Type:** Aggregation / Counting\n🔹 **Definition:** Counts the number of cells in a column that contain non-blank numbers.\n\n💻 **Syntax:**\n`COUNT(<column>)`\n\n💡 **Example:**\n`Orders Count = COUNT(Sales[OrderID])`"
+      },
+      {
+        "question": "[Aggregation] What does the COUNTA function do?",
+        "answer": "🔹 **Type:** Aggregation / Counting\n🔹 **Definition:** Counts the number of cells in a column that are not empty (works for text and numbers).\n\n💻 **Syntax:**\n`COUNTA(<column>)`\n\n💡 **Example:**\n`Active Users = COUNTA(Users[Username])`"
+      },
+      {
+        "question": "[Aggregation] What does the COUNTROWS function do?",
+        "answer": "🔹 **Type:** Aggregation / Counting\n🔹 **Definition:** Counts the total number of rows in the specified table.\n\n💻 **Syntax:**\n`COUNTROWS(<table>)`\n\n💡 **Example:**\n`Total Rows = COUNTROWS(Sales)`"
+      },
+      {
+        "question": "[Aggregation] What does the PRODUCT function do?",
+        "answer": "🔹 **Type:** Aggregation\n🔹 **Definition:** Returns the product of the numbers in a column (multiplies them all).\n\n💻 **Syntax:**\n`PRODUCT(<column>)`\n\n💡 **Example:**\n`Total Factor = PRODUCT(Factors[Rate])`"
+      },
+      {
+        "question": "[Text] What does the LEFT function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Returns the specified number of characters from the start of a text string.\n\n💻 **Syntax:**\n`LEFT(<text>, <num_chars>)`\n\n💡 **Example:**\n`Area Code = LEFT(Customers[Phone], 3)`"
+      },
+      {
+        "question": "[Text] What does the RIGHT function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Returns the specified number of characters from the end of a text string.\n\n💻 **Syntax:**\n`RIGHT(<text>, <num_chars>)`\n\n💡 **Example:**\n`ID End = RIGHT(Employees[ID], 4)`"
+      },
+      {
+        "question": "[Text] What does the LEN function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Returns the number of characters in a text string.\n\n💻 **Syntax:**\n`LEN(<text>)`\n\n💡 **Example:**\n`Char Count = LEN(Products[Description])`"
+      },
+      {
+        "question": "[Text] What does the UPPER function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Converts a text string to all uppercase letters.\n\n💻 **Syntax:**\n`UPPER(<text>)`\n\n💡 **Example:**\n`Upper Code = UPPER(Products[Code])`"
+      },
+      {
+        "question": "[Text] What does the LOWER function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Converts a text string to all lowercase letters.\n\n💻 **Syntax:**\n`LOWER(<text>)`\n\n💡 **Example:**\n`Lower Email = LOWER(Customers[Email])`"
+      },
+      {
+        "question": "[Text] What does the TRIM function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Removes all spaces from text except for single spaces between words.\n\n💻 **Syntax:**\n`TRIM(<text>)`\n\n💡 **Example:**\n`Clean Name = TRIM(Customers[Name])`"
+      },
+      {
+        "question": "[Text] What does the CONCATENATE function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Joins two text strings into one text string.\n\n💻 **Syntax:**\n`CONCATENATE(<text1>, <text2>)`\n\n💡 **Example:**\n`Full Name = CONCATENATE(Users[FirstName], Users[LastName])`"
+      },
+      {
+        "question": "[Date & Time] What does the TODAY function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the current date.\n\n💻 **Syntax:**\n`TODAY()`\n\n💡 **Example:**\n`Current Date = TODAY()`"
+      },
+      {
+        "question": "[Date & Time] What does the NOW function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the current date and time.\n\n💻 **Syntax:**\n`NOW()`\n\n💡 **Example:**\n`Timestamp = NOW()`"
+      },
+      {
+        "question": "[Date & Time] What does the YEAR function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the year of a date as a four-digit integer.\n\n💻 **Syntax:**\n`YEAR(<date>)`\n\n💡 **Example:**\n`Order Year = YEAR(Sales[OrderDate])`"
+      },
+      {
+        "question": "[Date & Time] What does the MONTH function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the month as a number from 1 (January) to 12 (December).\n\n💻 **Syntax:**\n`MONTH(<date>)`\n\n💡 **Example:**\n`Order Month = MONTH(Sales[OrderDate])`"
+      },
+      {
+        "question": "[Date & Time] What does the DAY function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the day of the month (a number from 1 to 31).\n\n💻 **Syntax:**\n`DAY(<date>)`\n\n💡 **Example:**\n`Order Day = DAY(Sales[OrderDate])`"
+      },
+      {
+        "question": "[Date & Time] What does the HOUR function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the hour as a number from 0 (12:00 A.M.) to 23 (11:00 P.M.).\n\n💻 **Syntax:**\n`HOUR(<datetime>)`\n\n💡 **Example:**\n`Hour Part = HOUR(Sales[OrderTime])`"
+      },
+      {
+        "question": "[Date & Time] What does the MINUTE function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the minute as a number from 0 to 59.\n\n💻 **Syntax:**\n`MINUTE(<datetime>)`\n\n💡 **Example:**\n`Minute Part = MINUTE(Sales[OrderTime])`"
+      },
+      {
+        "question": "[Date & Time] What does the SECOND function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the second as a number from 0 to 59.\n\n💻 **Syntax:**\n`SECOND(<datetime>)`\n\n💡 **Example:**\n`Second Part = SECOND(Sales[OrderTime])`"
+      },
+      {
+        "question": "[Logical] What do the TRUE and FALSE functions do?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** Returns the logical value TRUE or FALSE.\n\n💻 **Syntax:**\n`TRUE()` | `FALSE()`\n\n💡 **Example:**\n`Flag = IF(Sales[Amount] > 500, TRUE(), FALSE())`"
       }
     ],
     "Medium": [
       {
-        "question": "[Date & Time Function] What is the purpose of the TOTALYTD function?",
-        "answer": "🔹 **Type:** Date & Time / Time Intelligence\n🔹 **Definition:** Evaluates the year-to-date value of the expression in the current context.\n\n💻 **Syntax:**\n`TOTALYTD(<expression>, <dates>[, <filter>][, <year_end_date>])`\n\n💡 **Example:**\n`YTD Sales = TOTALYTD(SUM(Sales[Amount]), 'Calendar'[Date])`"
+        "question": "[Text] What does the MID function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Returns a specific number of characters from a text string, starting at the position you specify.\n\n💻 **Syntax:**\n`MID(<text>, <start_num>, <num_chars>)`\n\n💡 **Example:**\n`Extract = MID(Customers[Code], 3, 2)`"
       },
       {
-        "question": "[Relationship Function] What is the use of the RELATED function?",
-        "answer": "🔹 **Type:** Relationship Function\n🔹 **Definition:** Returns a related value from another table, provided there is an active relationship.\n\n💻 **Syntax:**\n`RELATED(<column>)`\n\n💡 **Example:**\n`Store Type Name = RELATED(Store[Type])`"
+        "question": "[Text] What does the REPLACE function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Replaces part of a text string, based on the number of characters you specify, with a different text string.\n\n💻 **Syntax:**\n`REPLACE(<old_text>, <start_num>, <num_chars>, <new_text>)`\n\n💡 **Example:**\n`Masked = REPLACE(Users[Card], 1, 4, \"****\")`"
       },
       {
-        "question": "[Iterator/Loop Function] How does the SUMX function work?",
-        "answer": "🔹 **Type:** Iterator / Loop Function\n🔹 **Definition:** Evaluates an expression for each row of a table, and then sums up the results.\n\n💻 **Syntax:**\n`SUMX(<table>, <expression>)`\n\n💡 **Example:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
+        "question": "[Text] What does the SUBSTITUTE function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Replaces existing text with new text in a text string.\n\n💻 **Syntax:**\n`SUBSTITUTE(<text>, <old_text>, <new_text>[, <instance_num>])`\n\n💡 **Example:**\n`Fixed Clean = SUBSTITUTE(Products[Name], \"_\" , \" \")`"
+      },
+      {
+        "question": "[Text] What does the SEARCH function do?",
+        "answer": "🔹 **Type:** Text Function (Case-Insensitive)\n🔹 **Definition:** Returns the character position where a specific text string is first found (Not case-sensitive, supports wildcards).\n\n💻 **Syntax:**\n`SEARCH(<find_text>, <within_text>[, <start_num>][, <NotFoundValue>])`\n\n💡 **Example:**\n`Pos = SEARCH(\"Pro\", Products[Name], 1, 0)`"
+      },
+      {
+        "question": "[Text] What does the FIND function do?",
+        "answer": "🔹 **Type:** Text Function (Case-Sensitive)\n🔹 **Definition:** Returns the character position where a specific text string is first found (Case-sensitive, no wildcards).\n\n💻 **Syntax:**\n`FIND(<find_text>, <within_text>[, <start_num>][, <NotFoundValue>])`\n\n💡 **Example:**\n`Pos = FIND(\"Pro\", Products[Name], 1, 0)`"
+      },
+      {
+        "question": "[Text] What does the EXACT function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Compares two text strings and returns TRUE if they are exactly the same (Case-sensitive).\n\n💻 **Syntax:**\n`EXACT(<text1>, <text2>)`\n\n💡 **Example:**\n`Match = EXACT(Products[Code1], Products[Code2])`"
+      },
+      {
+        "question": "[Text / Conversion] What does the FORMAT function do?",
+        "answer": "🔹 **Type:** Text / Conversion\n🔹 **Definition:** Converts a value to text according to the specified format template.\n\n💻 **Syntax:**\n`FORMAT(<value>, <format_string>)`\n\n💡 **Example:**\n`Formatted Date = FORMAT(Sales[OrderDate], \"YYYY-MM-DD\")`"
+      },
+      {
+        "question": "[Text / Conversion] What does the FIXED function do?",
+        "answer": "🔹 **Type:** Text / Conversion\n🔹 **Definition:** Rounds a number to the specified number of decimals and returns the result as text.\n\n💻 **Syntax:**\n`FIXED(<number>[, <decimals>][, <no_commas>])`\n\n💡 **Example:**\n`TxtNum = FIXED(Sales[Revenue], 2)`"
+      },
+      {
+        "question": "[Text] What does the REPT function do?",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** Repeats text a given number of times.\n\n💻 **Syntax:**\n`REPT(<text>, <num_times>)`\n\n💡 **Example:**\n`Stars = REPT(\"*\", Products[Rating])`"
+      },
+      {
+        "question": "[Date & Time] What does the DATE function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the specified date in datetime format.\n\n💻 **Syntax:**\n`DATE(<year>, <month>, <day>)`\n\n💡 **Example:**\n`Custom Date = DATE(2026, 5, 24)`"
+      },
+      {
+        "question": "[Date & Time] What does the TIME function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Converts hours, minutes, and seconds given as numbers to a time in datetime format.\n\n💻 **Syntax:**\n`TIME(<hour>, <minute>, <second>)`\n\n💡 **Example:**\n`Custom Time = TIME(14, 30, 0)`"
+      },
+      {
+        "question": "[Date & Time] What does the DATEDIFF function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the count of interval boundaries crossed between two dates.\n\n💻 **Syntax:**\n`DATEDIFF(<date1>, <date2>, <interval>)`\n\n💡 **Example:**\n`Days Open = DATEDIFF(Sales[OrderDate], Sales[ShipDate], DAY)`"
+      },
+      {
+        "question": "[Date & Time] What does the EDATE function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the date that is the indicated number of months before or after the start date.\n\n💻 **Syntax:**\n`EDATE(<start_date>, <months>)`\n\n💡 **Example:**\n`Next Year = EDATE(Sales[OrderDate], 12)`"
+      },
+      {
+        "question": "[Date & Time] What does the EOMONTH function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the date in datetime format of the last day of the month, before or after a specified number of months.\n\n💻 **Syntax:**\n`EOMONTH(<start_date>, <months>)`\n\n💡 **Example:**\n`End Of Month = EOMONTH(Sales[OrderDate], 0)`"
+      },
+      {
+        "question": "[Date & Time] What does the WEEKDAY function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns a number from 1 to 7 identifying the day of the week of a date.\n\n💻 **Syntax:**\n`WEEKDAY(<date>[, <return_type>])`\n\n💡 **Example:**\n`DayOfWeek = WEEKDAY(Sales[OrderDate], 1)`"
+      },
+      {
+        "question": "[Date & Time] What does the WEEKNUM function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the week number of the year for the given date.\n\n💻 **Syntax:**\n`WEEKNUM(<date>[, <return_type>])`\n\n💡 **Example:**\n`WeekIndex = WEEKNUM(Sales[OrderDate])`"
+      },
+      {
+        "question": "[Date & Time] What does the QUARTER function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Returns the quarter of the year as a number from 1 to 4.\n\n💻 **Syntax:**\n`QUARTER(<date>)`\n\n💡 **Example:**\n`OrderQuarter = QUARTER(Sales[OrderDate])`"
+      },
+      {
+        "question": "[Date & Time] What does the DATEVALUE function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Converts a date string into a standard datetime format.\n\n💻 **Syntax:**\n`DATEVALUE(<date_text>)`\n\n💡 **Example:**\n`Dt = DATEVALUE(\"2026-05-24\")`"
+      },
+      {
+        "question": "[Date & Time] What does the TIMEVALUE function do?",
+        "answer": "🔹 **Type:** Date & Time\n🔹 **Definition:** Converts a time string into a standard datetime format time part.\n\n💻 **Syntax:**\n`TIMEVALUE(<time_text>)`\n\n💡 **Example:**\n`Tm = TIMEVALUE(\"14:30:00\")`"
+      },
+      {
+        "question": "[Logical] How does the IF function work?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** Checks a condition and returns one value when TRUE, otherwise it returns a second value.\n\n💻 **Syntax:**\n`IF(<logical_test>, <value_if_true>[, <value_if_false>])`\n\n💡 **Example:**\n`Status = IF(Sales[Amount] > 1000, \"High\", \"Low\")`"
+      },
+      {
+        "question": "[Logical] What is the benefit of the SWITCH function?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** Evaluates an expression against a list of values and returns one of multiple possible results.\n\n💻 **Syntax:**\n`SWITCH(<expression>, <value>, <result>[, <value>, <result>]*[, <else>])`\n\n💡 **Example:**\n`QuarterName = SWITCH(Sales[QuarterNum], 1, \"Q1\", 2, \"Q2\", 3, \"Q3\", 4, \"Q4\", \"Unknown\")`"
+      },
+      {
+        "question": "[Logical] How do AND and OR functions work?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** AND checks if all arguments are TRUE. OR checks if at least one argument is TRUE.\n\n💻 **Syntax:**\n`AND(<logical1>, <logical2>)` | `OR(<logical1>, <logical2>)`\n\n💡 **Example:**\n`Check = AND(Sales[Qty] > 10, Sales[Amount] > 100)`"
+      },
+      {
+        "question": "[Logical] What does the NOT function do?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** Changes TRUE to FALSE, and FALSE to TRUE.\n\n💻 **Syntax:**\n`NOT(<logical>)`\n\n💡 **Example:**\n`IsIncorrect = NOT(Sales[IsValid])`"
+      },
+      {
+        "question": "[Logical] What does the IFERROR function do?",
+        "answer": "🔹 **Type:** Logical\n🔹 **Definition:** Evaluates an expression and returns a specified value if the expression returns an error.\n\n💻 **Syntax:**\n`IFERROR(<value>, <value_if_error>)`\n\n💡 **Example:**\n`SafeDivision = IFERROR(Sales[Amount] / Sales[Qty], 0)`"
+      },
+      {
+        "question": "[Conversion] What does the VALUE function do?",
+        "answer": "🔹 **Type:** Conversion\n🔹 **Definition:** Converts a text string that represents a number to a numeric value.\n\n💻 **Syntax:**\n`VALUE(<text>)`\n\n💡 **Example:**\n`NumValue = VALUE(\"1250\")`"
+      },
+      {
+        "question": "[Conversion] What does the CONVERT function do?",
+        "answer": "🔹 **Type:** Conversion\n🔹 **Definition:** Converts an expression to a specified data type.\n\n💻 **Syntax:**\n`CONVERT(<expression>, <data_type>)`\n\n💡 **Example:**\n`IntVal = CONVERT(Sales[Price], INTEGER)`"
       }
     ],
     "Hard": [
       {
-        "question": "[Time Intelligence Function] How does the DATEADD function work?",
-        "answer": "🔹 **Type:** Time Intelligence Function\n🔹 **Definition:** Returns a table that contains a column of dates shifted forward or backward by a specific interval.\n\n💻 **Syntax:**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **Example:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD('Calendar'[Date], -1, YEAR))`"
+        "question": "[Iterator] How does the SUMX function work?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Evaluates an expression for each row of a table, and then sums the results.\n\n💻 **Syntax:**\n`SUMX(<table>, <expression>)`\n\n💡 **Example:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
       },
       {
-        "question": "[Relationship & Filter Function] What is the purpose of the USERELATIONSHIP function?",
-        "answer": "🔹 **Type:** Relationship / Filter Function\n🔹 **Definition:** Specifies an inactive relationship to be used dynamically in a specific calculation.\n\n💻 **Syntax:**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **Example:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], 'Calendar'[Date]))`"
+        "question": "[Iterator] Explain the AVERAGEX function.",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Calculates the average of a set of expressions evaluated over a table row by row.\n\n💻 **Syntax:**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **Example:**\n`AvgDailySales = AVERAGEX('Calendar', SUM(Sales[Amount]))`"
       },
       {
-        "question": "[Advanced Filter & Context Function] Explain the KEEPFILTERS function.",
-        "answer": "🔹 **Type:** Advanced Filter Function\n🔹 **Definition:** Modifies how filters are applied inside CALCULATE, keeping existing outer filters instead of overriding them.\n\n💻 **Syntax:**\n`KEEPFILTERS(<expression>)`\n\n💡 **Example:**\n`Red Products Sales = CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Products[Color] = \"Red\"))`"
+        "question": "[Iterator] How does the MINX function work?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Evaluates an expression for each row of a table and returns the lowest value.\n\n💻 **Syntax:**\n`MINX(<table>, <expression>)`\n\n💡 **Example:**\n`MinNetProfit = MINX(Sales, Sales[Amount] - Sales[Cost])`"
+      },
+      {
+        "question": "[Iterator] How does the MAXX function work?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Evaluates an expression for each row of a table and returns the highest value.\n\n💻 **Syntax:**\n`MAXX(<table>, <expression>)`\n\n💡 **Example:**\n`MaxNetProfit = MAXX(Sales, Sales[Amount] - Sales[Cost])`"
+      },
+      {
+        "question": "[Iterator] What does the COUNTX function do?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Counts the number of rows containing non-blank values when evaluating an expression over a table.\n\n💻 **Syntax:**\n`COUNTX(<table>, <expression>)`\n\n💡 **Example:**\n`Cnt = COUNTX(Customers, RELATED(Store[City]))`"
+      },
+      {
+        "question": "[Iterator] What does the COUNTAX function do?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Counts non-blank rows when evaluating an expression over a table (supports both text and numbers).\n\n💻 **Syntax:**\n`COUNTAX(<table>, <expression>)`\n\n💡 **Example:**\n`CntA = COUNTAX(Sales, Sales[PromoCode])`"
+      },
+      {
+        "question": "[Iterator] What does the PRODUCTX function do?",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Evaluates an expression for each row of a table and returns the product (multiplication) of all results.\n\n💻 **Syntax:**\n`PRODUCTX(<table>, <expression>)`\n\n💡 **Example:**\n`CompoundRate = PRODUCTX(Rates, 1 + Rates[Interest])`"
+      },
+      {
+        "question": "[Iterator] Explain the CONCATENATEX function.",
+        "answer": "🔹 **Type:** Iterator / Loop\n🔹 **Definition:** Evaluates an expression for each row of a table and concatenates the results separated by a delimiter.\n\n💻 **Syntax:**\n`CONCATENATEX(<table>, <expression>[, <delimiter>][, <order_by_expression>][, <order>])`\n\n💡 **Example:**\n`CitiesList = CONCATENATEX(Stores, Stores[City], \", \")`"
+      },
+      {
+        "question": "[Filter & Context] Explain the CALCULATE function.",
+        "answer": "🔹 **Type:** Filter / Context Modification\n🔹 **Definition:** Evaluates an expression in a context modified by filters (The core function of DAX).\n\n💻 **Syntax:**\n`CALCULATE(<expression>[, <filter1>[, ...]])`\n\n💡 **Example:**\n`SalesUSA = CALCULATE(SUM(Sales[Amount]), Customers[Country] = \"USA\")`"
+      },
+      {
+        "question": "[Filter & Context] What does CALCULATETABLE do?",
+        "answer": "🔹 **Type:** Filter / Context Modification\n🔹 **Definition:** Evaluates a table expression in a context modified by specific filters.\n\n💻 **Syntax:**\n`CALCULATETABLE(<table>[, <filter1>[, ...]])`\n\n💡 **Example:**\n`US_Stores = CALCULATETABLE(Stores, Stores[Country] = \"USA\")`"
+      },
+      {
+        "question": "[Filter & Context] How does the FILTER function work?",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Returns a table that represents a filtered subset of another table.\n\n💻 **Syntax:**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **Example:**\n`HighSalesRows = FILTER(Sales, Sales[Amount] > 1000)`"
+      },
+      {
+        "question": "[Filter & Context] What does the ALL function do?",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Returns all rows in a table, or all values in a column, ignoring any applied filters.\n\n💻 **Syntax:**\n`ALL([<table> | <column>[, <column>[, ...]]])`\n\n💡 **Example:**\n`GlobalSales = CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
+      },
+      {
+        "question": "[Filter & Context] Explain ALLEXCEPT function.",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Removes all context filters in the table except filters applied to specified columns.\n\n💻 **Syntax:**\n`ALLEXCEPT(<table>, <column>[, <column>[, ...]])`\n\n💡 **Example:**\n`SalesCatTotal = CALCULATE(SUM(Sales[Amount]), ALLEXCEPT(Products, Products[Category]))`"
+      },
+      {
+        "question": "[Filter & Context] What does ALLSELECTED do?",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Removes context filters from columns and rows in the current query, while retaining filters from outside (visuals/slicers).\n\n💻 **Syntax:**\n`ALLSELECTED([<table> | <column>])`\n\n💡 **Example:**\n`RunningTotal = CALCULATE(SUM(Sales[Amount]), ALLSELECTED(Sales))`"
+      },
+      {
+        "question": "[Filter & Context] What does REMOVEFILTERS do?",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Clear filters from specified tables or columns (Alias for ALL when used as a filter modifier inside CALCULATE).\n\n💻 **Syntax:**\n`REMOVEFILTERS([<table> | <column>[, <column>[, ...]]])`\n\n💡 **Example:**\n`UnfilteredSales = CALCULATE(SUM(Sales[Amount]), REMOVEFILTERS(Products[Color]))`"
+      },
+      {
+        "question": "[Filter & Context] Explain the KEEPFILTERS function.",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Modifies how filters are applied inside CALCULATE, merging new filters with existing outer context instead of overriding them.\n\n💻 **Syntax:**\n`KEEPFILTERS(<expression>)`\n\n💡 **Example:**\n`RedSales = CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Products[Color] = \"Red\"))`"
+      },
+      {
+        "question": "[Filter & Context] What does the VALUES function do?",
+        "answer": "🔹 **Type:** Filter / Table Function\n🔹 **Definition:** Returns a one-column table containing unique values from the specified column, including the blank row if applicable.\n\n💻 **Syntax:**\n`VALUES(<column_or_table>)`\n\n💡 **Example:**\n`UniqueProducts = VALUES(Products[ProductID])`"
+      },
+      {
+        "question": "[Filter & Context] Explain SELECTEDVALUE function.",
+        "answer": "🔹 **Type:** Filter Function\n🔹 **Definition:** Returns the value when the context for a column has been filtered down to one distinct value only. Otherwise returns blank or alternate result.\n\n💻 **Syntax:**\n`SELECTEDVALUE(<columnName>[, <alternateResult>])`\n\n💡 **Example:**\n`CurrentCity = SELECTEDVALUE(Stores[City], \"Multiple Cities\")`"
+      },
+      {
+        "question": "[Filter & Context] What does DISTINCTCOUNT do?",
+        "answer": "🔹 **Type:** Counting / Filter\n🔹 **Definition:** Counts the number of distinct (unique) values in a column.\n\n💻 **Syntax:**\n`DISTINCTCOUNT(<column>)`\n\n💡 **Example:**\n`UniqueCustomers = DISTINCTCOUNT(Sales[CustomerID])`"
+      },
+      {
+        "question": "[Filter & Context] What do HASONEVALUE and HASONEFILTER do?",
+        "answer": "🔹 **Type:** Context Information\n🔹 **Definition:** HASONEVALUE returns TRUE when a column has exactly one distinct value. HASONEFILTER returns TRUE when the column is directly filtered to one value.\n\n💻 **Syntax:**\n`HASONEVALUE(<columnName>)` | `HASONEFILTER(<columnName>)`\n\n💡 **Example:**\n`IsSingleProduct = HASONEVALUE(Products[ProductName])`"
+      },
+      {
+        "question": "[Context Info] Explain ISFILTERED and ISCROSSFILTERED.",
+        "answer": "🔹 **Type:** Context Information\n🔹 **Definition:** ISFILTERED returns TRUE when a column is directly filtered. ISCROSSFILTERED returns TRUE when filtered through relationships.\n\n💻 **Syntax:**\n`ISFILTERED(<columnName>)` | `ISCROSSFILTERED(<columnName>)`\n\n💡 **Example:**\n`Filtered = ISFILTERED(Products[Category])`"
+      },
+      {
+        "question": "[Relationship] What does the RELATED function do?",
+        "answer": "🔹 **Type:** Relationship\n🔹 **Definition:** Returns a related value from another table using an active relationship.\n\n💻 **Syntax:**\n`RELATED(<column>)`\n\n💡 **Example:**\n`BrandName = RELATED(Products[Brand])`"
+      },
+      {
+        "question": "[Relationship] What does RELATEDTABLE do?",
+        "answer": "🔹 **Type:** Relationship\n🔹 **Definition:** Evaluates a table expression in a context modified by given filters and returns a related subtable.\n\n💻 **Syntax:**\n`RELATEDTABLE(<table>)`\n\n💡 **Example:**\n`OrdersTable = RELATEDTABLE(Sales)`"
+      },
+      {
+        "question": "[Relationship] Explain the LOOKUPVALUE function.",
+        "answer": "🔹 **Type:** Relationship / Search\n🔹 **Definition:** Retrieves a value from a table without requiring a formal relationship between tables.\n\n💻 **Syntax:**\n`LOOKUPVALUE(<result_columnName>, <search_columnName>, <search_value>[, ...])`\n\n💡 **Example:**\n`Email = LOOKUPVALUE(Users[Email], Users[ID], Sales[UserID])`"
+      },
+      {
+        "question": "[Relationship] Explain USERELATIONSHIP function.",
+        "answer": "🔹 **Type:** Relationship Modifier\n🔹 **Definition:** Specifies an inactive relationship to be used dynamically within a specific CALCULATE statement.\n\n💻 **Syntax:**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **Example:**\n`ShipSales = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], 'Calendar'[Date]))`"
+      },
+      {
+        "question": "[Relationship] What does CROSSFILTER do?",
+        "answer": "🔹 **Type:** Relationship Modifier\n🔹 **Definition:** Specifies the cross-filtering direction to be used in a calculation for a relationship.\n\n💻 **Syntax:**\n`CROSSFILTER(<columnName1>, <columnName2>, <direction>)`\n\n💡 **Example:**\n`BiDirectional = CALCULATE(COUNTROWS(Stores), CROSSFILTER(Sales[StoreID], Stores[StoreID], Both))`"
+      },
+      {
+        "question": "[Ranking & Sorting] Explain RANKX and TOPN functions.",
+        "answer": "🔹 **Type:** Ranking / Sorting\n🔹 **Definition:** RANKX returns the ranking of a number in a list of numbers. TOPN returns the top N rows of the specified table.\n\n💻 **Syntax:**\n`RANKX(<table>, <expression>[, <value>][, <order>][, <ties>])` | `TOPN(<n_value>, <table>, <order_by_expression>[, <order>])`\n\n💡 **Example:**\n`ProductRank = RANKX(ALL(Products), SUM(Sales[Amount]))`"
+      },
+      {
+        "question": "[Advanced Text] Explain UNICHAR and UNICODE functions.",
+        "answer": "🔹 **Type:** Text Function\n🔹 **Definition:** UNICHAR returns the Unicode character referenced by the numeric value. UNICODE returns the numeric code point for the first character.\n\n💻 **Syntax:**\n`UNICHAR(<number>)` | `UNICODE(<text>)`\n\n💡 **Example:**\n`Icon = UNICHAR(11088)`"
       }
     ]
   },
   "ar": {
     "Easy": [
       {
-        "question": "[دوال التجميع] ما هي وظيفة دالة SUM في لغة DAX؟",
-        "answer": "🔹 **نوع الدالة:** دوال التجميع (Aggregation)\n🔹 **تعريف الدالة:** تقوم بجمع كل الأرقام الموجودة في عمود معين.\n\n💻 **طريقة الكتابة (Syntax):**\n`SUM(<column>)`\n\n💡 **مثال عملي:**\n`Total Quantity = SUM(Sales[Quantity])`"
+        "question": "[دوال التجمع] ما الذي تقوم به دالة SUM؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع (Aggregation)\n🔹 **تعريف الدالة:** تقوم بجمع كل الأرقام الموجودة في عمود معين بالكامل.\n\n💻 **طريقة الكتابة (Syntax):**\n`SUM(<column>)`\n\n💡 **مثال عملي:**\n`Total Sales = SUM(Sales[Amount])`"
       },
       {
-        "question": "[دوال النصوص] ما هو الغرض من استخدام دالة CONCATENATE؟",
-        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقوم بربط سلسلتين نصيتين معاً لتصبحا نصاً واحداً.\n\n💻 **طريقة الكتابة (Syntax):**\n`CONCATENATE(<text1>, <text2>)`\n\n💡 **مثال عملي:**\n`Full Product Name = CONCATENATE(Products[Brand], Products[Model])`"
+        "question": "[دوال التجمع] ما الذي تقوم به دالة AVERAGE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع (Aggregation)\n🔹 **تعريف الدالة:** تحسب المتوسط الحسابي لجميع الأرقام الموجودة في عمود معين.\n\n💻 **طريقة الكتابة (Syntax):**\n`AVERAGE(<column>)`\n\n💡 **مثال عملي:**\n`Avg Revenue = AVERAGE(Sales[Amount])`"
       },
       {
-        "question": "[دوال المنطق] كيف تعمل دالة IF في الـ DAX؟",
-        "answer": "🔹 **نوع الدالة:** دوال المنطقة والمنطق (Logical Functions)\n🔹 **تعريف الدالة:** تختبر شرطاً معيناً، وترجع قيمة محددة إذا كان الشرط صحيحاً (TRUE)، وقيمة أخرى إذا كان خاطئاً (FALSE).\n\n💻 **طريقة الكتابة (Syntax):**\n`IF(<logical_test>, <value_if_true>[, <value_if_false>])`\n\n💡 **مثال عملي:**\n`High Value Status = IF(Sales[Amount] > 1000, \"High\", \"Low\")`"
+        "question": "[دوال التجمع] ما هي وظيفة دالة MIN؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع (Aggregation)\n🔹 **تعريف الدالة:** تُرجع أصغر قيمة موجودة في عمود معين.\n\n💻 **طريقة الكتابة (Syntax):**\n`MIN(<column>)`\n\n💡 **مثال عملي:**\n`Lowest Price = MIN(Products[Price])`"
+      },
+      {
+        "question": "[دوال التجمع] ما هي وظيفة دالة MAX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع (Aggregation)\n🔹 **تعريف الدالة:** تُرجع أكبر قيمة موجودة في عمود معين.\n\n💻 **طريقة الكتابة (Syntax):**\n`MAX(<column>)`\n\n💡 **مثال عملي:**\n`Highest Price = MAX(Products[Price])`"
+      },
+      {
+        "question": "[دوال التجمع والعد] ما الذي تقوم به دالة COUNT؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع والعد (Counting)\n🔹 **تعريف الدالة:** تقوم بعد الخلايا التي تحتوي على أرقام غير فارغة داخل عمود معين.\n\n💻 **طريقة الكتابة (Syntax):**\n`COUNT(<column>)`\n\n💡 **مثال عملي:**\n`Orders Count = COUNT(Sales[OrderID])`"
+      },
+      {
+        "question": "[دوال التجمع والعد] ما الفرق الذي تقدمه دالة COUNTA؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع والعد (Counting)\n🔹 **تعريف الدالة:** تقوم بعد الخلايا غير الفارغة في عمود معين (وتدعم النصوص والأرقام والتواريخ بعكس COUNT).\n\n💻 **طريقة الكتابة (Syntax):**\n`COUNTA(<column>)`\n\n💡 **مثال عملي:**\n`Active Users = COUNTA(Users[Username])`"
+      },
+      {
+        "question": "[دوال التجمع والعد] ما الذي تقوم به دالة COUNTROWS؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع والعد (Counting)\n🔹 **تعريف الدالة:** تقوم بحساب العدد الإجمالي للصفوف داخل جدول محدد بالكامل.\n\n💻 **طريقة الكتابة (Syntax):**\n`COUNTROWS(<table>)`\n\n💡 **مثال عملي:**\n`Total Rows = COUNTROWS(Sales)`"
+      },
+      {
+        "question": "[دوال التجمع] ما هي وظيفة دالة PRODUCT؟",
+        "answer": "🔹 **نوع الدالة:** دوال التجمع (Aggregation)\n🔹 **تعريف الدالة:** تُرجع حاصل ضرب الأرقام الموجودة في عمود معين (تضربها جميعاً في بعضها).\n\n💻 **طريقة الكتابة (Syntax):**\n`PRODUCT(<column>)`\n\n💡 **مثال عملي:**\n`Total Factor = PRODUCT(Factors[Rate])`"
+      },
+      {
+        "question": "[دوال النصوص] ما الذي تقوم به دالة LEFT؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقتطع وتستخرج عدداً معيناً من الحروف من بداية (يسار) النص.\n\n💻 **طريقة الكتابة (Syntax):**\n`LEFT(<text>, <num_chars>)`\n\n💡 **مثال عملي:**\n`Area Code = LEFT(Customers[Phone], 3)`"
+      },
+      {
+        "question": "[دوال النصوص] ما الذي تقوم به دالة RIGHT؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقتطع وتستخرج عدداً معيناً من الحروف من نهاية (يمين) النص.\n\n💻 **طريقة الكتابة (Syntax):**\n`RIGHT(<text>, <num_chars>)`\n\n💡 **مثال عملي:**\n`ID End = RIGHT(Employees[ID], 4)`"
+      },
+      {
+        "question": "[دوال النصوص] ما هي وظيفة دالة LEN؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تحسب وتُرجع عدد الحروف (طول النص) داخل سلسلة نصية.\n\n💻 **طريقة الكتابة (Syntax):**\n`LEN(<text>)`\n\n💡 **مثال عملي:**\n`Char Count = LEN(Products[Description])`"
+      },
+      {
+        "question": "[دوال النصوص] ما الذي تقوم به دالة UPPER؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تحول النص بالكامل إلى حروف كبيرة (Capital English).\n\n💻 **طريقة الكتابة (Syntax):**\n`UPPER(<text>)`\n\n💡 **مثال عملي:**\n`Upper Code = UPPER(Products[Code])`"
+      },
+      {
+        "question": "[دوال النصوص] ما الذي تقوم به دالة LOWER؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تحول النص بالكامل إلى حروف صغيرة (Small English).\n\n💻 **طريقة الكتابة (Syntax):**\n`LOWER(<text>)`\n\n💡 **مثال عملي:**\n`Lower Email = LOWER(Customers[Email])`"
+      },
+      {
+        "question": "[دوال النصوص] ما هي فائدة دالة TRIM؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تنظف النص وتقوم بمسح المسافات الزائدة من البداية والنهاية، وتبقي على مسافة واحدة فقط بين الكلمات.\n\n💻 **طريقة الكتابة (Syntax):**\n`TRIM(<text>)`\n\n💡 **مثال عملي:**\n`Clean Name = TRIM(Customers[Name])`"
+      },
+      {
+        "question": "[دوال النصوص] ما الغرض من دالة CONCATENATE؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقوم بربط سلسلتين نصيتين معاً لتصبحا نصاً واحداً.\n\n💻 **طريقة الكتابة (Syntax):**\n`CONCATENATE(<text1>, <text2>)`\n\n💡 **مثال عملي:**\n`Full Name = CONCATENATE(Users[FirstName], Users[LastName])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة TODAY؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تُرجع التاريخ الحالي بشكل ديناميكي ومتجدد تلقائياً.\n\n💻 **طريقة الكتابة (Syntax):**\n`TODAY()`\n\n💡 **مثال عملي:**\n`Current Date = TODAY()`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة NOW؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تُرجع التاريخ الحالي والوقت بالدقائق والثواني بدقة.\n\n💻 **طريقة الكتابة (Syntax):**\n`NOW()`\n\n💡 **مثال عملي:**\n`Timestamp = NOW()`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة YEAR؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج السنة فقط من التاريخ وتُرجعها كرقم مكون من 4 خانات.\n\n💻 **طريقة الكتابة (Syntax):**\n`YEAR(<date>)`\n\n💡 **مثال عملي:**\n`Order Year = YEAR(Sales[OrderDate])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة MONTH؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج ترتيب الشهر فقط من التاريخ كرقم من 1 (يناير) إلى 12 (ديسمبر).\n\n💻 **طريقة الكتابة (Syntax):**\n`MONTH(<date>)`\n\n💡 **مثال عملي:**\n`Order Month = MONTH(Sales[OrderDate])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة DAY؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج يوم الشهر فقط من التاريخ كرقم من 1 إلى 31.\n\n💻 **طريقة الكتابة (Syntax):**\n`DAY(<date>)`\n\n💡 **مثال عملي:**\n`Order Day = DAY(Sales[OrderDate])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة HOUR؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج الساعة فقط من وقت محدد كرقم من 0 إلى 23.\n\n💻 **طريقة الكتابة (Syntax):**\n`HOUR(<datetime>)`\n\n💡 **مثال عملي:**\n`Hour Part = HOUR(Sales[OrderTime])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة MINUTE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج الدقيقة فقط من وقت محدد كرقم من 0 إلى 59.\n\n💻 **طريقة الكتابة (Syntax):**\n`MINUTE(<datetime>)`\n\n💡 **مثال عملي:**\n`Minute Part = MINUTE(Sales[OrderTime])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة SECOND؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تستخرج الثانية فقط من وقت محدد كرقم من 0 إلى 59.\n\n💻 **طريقة الكتابة (Syntax):**\n`SECOND(<datetime>)`\n\n💡 **مثال عملي:**\n`Second Part = SECOND(Sales[OrderTime])`"
+      },
+      {
+        "question": "[دوال المنطق] ما الذي تقوم به دوال TRUE و FALSE؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق والمنطقة (Logical)\n🔹 **تعريف الدالة:** تُرجع القيمة المنطقية نعم (TRUE) أو لا (FALSE) مباشرة لاستخدامها بالشروط.\n\n💻 **طريقة الكتابة (Syntax):**\n`TRUE()` | `FALSE()`\n\n💡 **مثال عملي:**\n`Flag = IF(Sales[Amount] > 500, TRUE(), FALSE())`"
       }
     ],
     "Medium": [
       {
-        "question": "[دوال التاريخ والوقت] ما هي فائدة دالة TOTALYTD؟",
-        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت / الذكاء الزمني\n🔹 **تعريف الدالة:** تحسب القيمة الإجمالية المتراكمة من بداية السنة الحالية وحتى التاريخ الحالي (Year-to-Date).\n\n💻 **طريقة الكتابة (Syntax):**\n`TOTALYTD(<expression>, <dates>[, <filter>])`\n\n💡 **مثال عملي:**\n`YTD Sales = TOTALYTD(SUM(Sales[Amount]), 'Calendar'[Date])`"
+        "question": "[دوال النصوص] ما الذي تقوم به دالة MID؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقتطع وتستخرج جزءاً من النص من أي موضع تحدده أنت بناءً على رقم البداية وعدد الحروف.\n\n💻 **طريقة الكتابة (Syntax):**\n`MID(<text>, <start_num>, <num_chars>)`\n\n💡 **مثال عملي:**\n`Extract = MID(Customers[Code], 3, 2)`"
       },
       {
-        "question": "[دوال العلاقات] ما هي وظيفة دالة RELATED؟",
-        "answer": "🔹 **نوع الدالة:** دوال العلاقات (Relationship Functions)\n🔹 **تعريف الدالة:** تجلب قيمة مرتبطة من جدول آخر بشرط وجود علاقة نشطة وقوية بين الجدولين.\n\n💻 **طريقة الكتابة (Syntax):**\n`RELATED(<column>)`\n\n💡 **مثال عملي:**\n`Store Type Name = RELATED(Store[Type])`"
+        "question": "[دوال النصوص] ما الذي تقوم به دالة REPLACE؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تستبدل جزءاً من النص (بناءً على موقعه وعدد حروفه) بنص جديد آخر.\n\n💻 **طريقة الكتابة (Syntax):**\n`REPLACE(<old_text>, <start_num>, <num_chars>, <new_text>)`\n\n💡 **مثال عملي:**\n`Masked = REPLACE(Users[Card], 1, 4, \"****\")`"
       },
       {
-        "question": "[دوال التكرار / الحلقات] كيف تعمل دالة SUMX التكرارية؟",
-        "answer": "🔹 **نوع الدالة:** دوال التكرار (Iterator Functions)\n🔹 **تعريف الدالة:** تقوم بالمرور على الجدول صفاً بصف (Loop) لحساب العملية الحسابية لكل صف على حدة، ثم تجمع الناتج النهائي.\n\n💻 **طريقة الكتابة (Syntax):**\n`SUMX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
+        "question": "[دوال النصوص] كيف تعمل دالة SUBSTITUTE؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تستبدل كلمة أو حرف محدد بنص جديد أينما وجد داخل النص القديم دون الحاجة لمعرفة موقعه.\n\n💻 **طريقة الكتابة (Syntax):**\n`SUBSTITUTE(<text>, <old_text>, <new_text>[, <instance_num>])`\n\n💡 **مثال عملي:**\n`Fixed Clean = SUBSTITUTE(Products[Name], \"_\" , \" \")`"
+      },
+      {
+        "question": "[دوال النصوص] ما وظيفة دالة SEARCH؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (غير حساسة لحالة الأحرف)\n🔹 **تعريف الدالة:** تبحث عن موضع أول حرف لكلمة معينة داخل نص (غير حساسة لحالة الأحرف وتدعم العلامات العامة wildcards).\n\n💻 **طريقة الكتابة (Syntax):**\n`SEARCH(<find_text>, <within_text>[, <start_num>][, <NotFoundValue>])`\n\n💡 **مثال عملي:**\n`Pos = SEARCH(\"Pro\", Products[Name], 1, 0)`"
+      },
+      {
+        "question": "[دوال النصوص] ما وظيفة دالة FIND؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (حساسة لحالة الأحرف)\n🔹 **تعريف الدالة:** تبحث عن موضع أول حرف لكلمة معينة داخل نص (حساسة جداً لحالة الأحرف الكبيرة والصغيرة ولا تدعم wildcards).\n\n💻 **طريقة الكتابة (Syntax):**\n`FIND(<find_text>, <within_text>[, <start_num>][, <NotFoundValue>])`\n\n💡 **مثال عملي:**\n`Pos = FIND(\"Pro\", Products[Name], 1, 0)`"
+      },
+      {
+        "question": "[دوال النصوص] ما الذي تقوم به دالة EXACT؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقارن بين نصين بدقة وتُرجع TRUE فقط إذا كان النصان متطابقين تماماً بحالة الأحرف.\n\n💻 **طريقة الكتابة (Syntax):**\n`EXACT(<text1>, <text2>)`\n\n💡 **مثال عملي:**\n`Match = EXACT(Products[Code1], Products[Code2])`"
+      },
+      {
+        "question": "[دوال النصوص / التحويل] ما الغرض من دالة FORMAT؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص والتحويل\n🔹 **تعريف الدالة:** تحول القيمة أو التاريخ إلى نص منسق بناءً على قالب تنسيق تحدده أنت.\n\n💻 **طريقة الكتابة (Syntax):**\n`FORMAT(<value>, <format_string>)`\n\n💡 **مثال عملي:**\n`Formatted Date = FORMAT(Sales[OrderDate], \"YYYY-MM-DD\")`"
+      },
+      {
+        "question": "[دوال النصوص / التحويل] ما الذي تقوم به دالة FIXED؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص والتحويل\n🔹 **تعريف الدالة:** تقرب الرقم إلى عدد خانات عشرية محدد وتُرجع النتيجة كنص.\n\n💻 **طريقة الكتابة (Syntax):**\n`FIXED(<number>[, <decimals>][, <no_commas>])`\n\n💡 **مثال عملي:**\n`TxtNum = FIXED(Sales[Revenue], 2)`"
+      },
+      {
+        "question": "[دوال النصوص] ما وظيفة دالة REPT؟",
+        "answer": "🔹 **نوع الدالة:** دوال النصوص (Text Functions)\n🔹 **تعريف الدالة:** تقوم بتكرار نص معين بعدد المرات الذي تحدده.\n\n💻 **طريقة الكتابة (Syntax):**\n`REPT(<text>, <num_times>)`\n\n💡 **مثال عملي:**\n`Stars = REPT(\"*\", Products[Rating])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة DATE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تقوم بإنشاء تاريخ قياسي بناءً على أرقام السنة والشهر واليوم التي تمررها لها.\n\n💻 **طريقة الكتابة (Syntax):**\n`DATE(<year>, <month>, <day>)`\n\n💡 **مثال عملي:**\n`Custom Date = DATE(2026, 5, 24)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما هي وظيفة دالة TIME؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تقوم بإنشاء وقت قياسي بناءً على أرقام الساعة والدقيقة والثانية الممررة.\n\n💻 **طريقة الكتابة (Syntax):**\n`TIME(<hour>, <minute>, <second>)`\n\n💡 **مثال عملي:**\n`Custom Time = TIME(14, 30, 0)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة DATEDIFF؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تحسب الفارق بين تاريخين بناءً على الوحدة الزمنية المحددة (يوم، شهر، سنة).\n\n💻 **طريقة الكتابة (Syntax):**\n`DATEDIFF(<date1>, <date2>, <interval>)`\n\n💡 **مثال عملي:**\n`Days Open = DATEDIFF(Sales[OrderDate], Sales[ShipDate], DAY)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة EDATE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تحسب وترجع التاريخ الذي يأتي بعد أو قبل تاريخ البدء بعدد محدد من الأشهر.\n\n💻 **طريقة الكتابة (Syntax):**\n`EDATE(<start_date>, <months>)`\n\n💡 **مثال عملي:**\n`Next Year = EDATE(Sales[OrderDate], 12)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما هي فائدة دالة EOMONTH؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تحسب وتُرجع تاريخ آخر يوم في الشهر، قبل أو بعد تاريخ البدء بعدد أشهر محدد.\n\n💻 **طريقة الكتابة (Syntax):**\n`EOMONTH(<start_date>, <months>)`\n\n💡 **مثال عملي:**\n`End Of Month = EOMONTH(Sales[OrderDate], 0)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] اشرح وظيفة دالة WEEKDAY.",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تُرجع رقماً من 1 إلى 7 يمثل ترتيب يوم الأسبوع للتاريخ المعطى.\n\n💻 **طريقة الكتابة (Syntax):**\n`WEEKDAY(<date>[, <return_type>])`\n\n💡 **مثال عملي:**\n`DayOfWeek = WEEKDAY(Sales[OrderDate], 1)`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الغرض من دالة WEEKNUM؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تُرجع رقم الأسبوع في السنة للتاريخ المعطى (من 1 إلى 53).\n\n💻 **طريقة الكتابة (Syntax):**\n`WEEKNUM(<date>[, <return_type>])`\n\n💡 **مثال عملي:**\n`WeekIndex = WEEKNUM(Sales[OrderDate])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما وظيفة دالة QUARTER؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت (Date & Time)\n🔹 **تعريف الدالة:** تُرجع رقم الربع السنوي للتاريخ (من 1 إلى 4).\n\n💻 **طريقة الكتابة (Syntax):**\n`QUARTER(<date>)`\n\n💡 **مثال عملي:**\n`OrderQuarter = QUARTER(Sales[OrderDate])`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة DATEVALUE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت\n🔹 **تعريف الدالة:** تحول النص المكتوب بصيغة تاريخ إلى صيغة تاريخ قياسية ومعترف بها برمجياً.\n\n💻 **طريقة الكتابة (Syntax):**\n`DATEVALUE(<date_text>)`\n\n💡 **مثال عملي:**\n`Dt = DATEVALUE(\"2026-05-24\")`"
+      },
+      {
+        "question": "[دوال التاريخ والوقت] ما الذي تقوم به دالة TIMEVALUE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التاريخ والوقت\n🔹 **تعريف الدالة:** تحول النص المكتوب بصيغة وقت إلى صيغة وقت قياسية ومعترف بها برمجياً.\n\n💻 **طريقة الكتابة (Syntax):**\n`TIMEVALUE(<time_text>)`\n\n💡 **مثال عملي:**\n`Tm = TIMEVALUE(\"14:30:00\")`"
+      },
+      {
+        "question": "[دوال المنطق] كيف تعمل دالة IF الشرطية؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق (Logical)\n🔹 **تعريف الدالة:** تختبر شرطاً، وتُرجع قيمة أولى إذا تحقق الشرط (TRUE)، وقيمة ثانية إذا لم يتحقق (FALSE).\n\n💻 **طريقة الكتابة (Syntax):**\n`IF(<logical_test>, <value_if_true>[, <value_if_false>])`\n\n💡 **مثال عملي:**\n`Status = IF(Sales[Amount] > 1000, \"High\", \"Low\")`"
+      },
+      {
+        "question": "[دوال المنطق] ما هي الميزة الأساسية لدالة SWITCH؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق (Logical)\n🔹 **تعريف الدالة:** تقيم تعبيراً مقابل قائمة قيم وتُرجع النتيجة المقابلة لأول تطابق (بديل أنيق للـ IF المتداخلة).\n\n💻 **طريقة الكتابة (Syntax):**\n`SWITCH(<expression>, <value>, <result>[, <value>, <result>]*[, <else>])`\n\n💡 **مثال عملي:**\n`QuarterName = SWITCH(Sales[QuarterNum], 1, \"Q1\", 2, \"Q2\", \"Other\")`"
+      },
+      {
+        "question": "[دوال المنطق] كيف تعمل دوال AND و OR المنطقية؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق (Logical)\n🔹 **تعريف الدالة:** AND تتطلب تحقق جميع الشروط لتُرجع TRUE. OR تتطلب تحقق شرط واحد على الأقل لتُرجع TRUE.\n\n💻 **طريقة الكتابة (Syntax):**\n`AND(<logical1>, <logical2>)` | `OR(<logical1>, <logical2>)`\n\n💡 **مثال عملي:**\n`Check = AND(Sales[Qty] > 10, Sales[Amount] > 100)`"
+      },
+      {
+        "question": "[دوال المنطق] ما الذي تقوم به دالة NOT؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق (Logical)\n🔹 **تعريف الدالة:** تعكس القيمة المنطقية، تحول TRUE إلى FALSE والعكس صحيح.\n\n💻 **طريقة الكتابة (Syntax):**\n`NOT(<logical>)`\n\n💡 **مثال عملي:**\n`IsIncorrect = NOT(Sales[IsValid])`"
+      },
+      {
+        "question": "[دوال المنطق] ما فائدة استخدام دالة IFERROR الحارس؟",
+        "answer": "🔹 **نوع الدالة:** دوال المنطق (Logical)\n🔹 **تعريف الدالة:** تقيم العملية، وإذا واجهت خطأ (Error) تُرجع قيمة بديلة تحددها أنت لمنع انهيار التقرير.\n\n💻 **طريقة الكتابة (Syntax):**\n`IFERROR(<value>, <value_if_error>)`\n\n💡 **مثال عملي:**\n`SafeDivision = IFERROR(Sales[Amount] / Sales[Qty], 0)`"
+      },
+      {
+        "question": "[دوال التحويل] ما الغرض من استخدام دالة VALUE؟",
+        "answer": "🔹 **نوع الدالة:** دوال التحويل والأنواع\n🔹 **تعريف الدالة:** تحول النص الرقمي (نص يحتوي على أرقام) إلى قيمة رقمية حقيقية صالحة للحساب.\n\n💻 **طريقة الكتابة (Syntax):**\n`VALUE(<text>)`\n\n💡 **مثال عملي:**\n`NumValue = VALUE(\"1250\")`"
+      },
+      {
+        "question": "[دوال التحويل] ما الغرض من دالة CONVERT؟",
+        "answer": "🔹 **نوع الدالة:** دوال التحويل والأنواع\n🔹 **تعريف الدالة:** تحول نوع البيانات للتعبير بشكل مباشر وصريح إلى نوع آخر محدد.\n\n💻 **طريقة الكتابة (Syntax):**\n`CONVERT(<expression>, <data_type>)`\n\n💡 **مثال عملي:**\n`IntVal = CONVERT(Sales[Price], INTEGER)`"
       }
     ],
     "Hard": [
       {
-        "question": "[دوال الذكاء الزمني] كيف تعمل دالة DATEADD المتقدمة؟",
-        "answer": "🔹 **نوع الدالة:** دوال الذكاء الزمني (Time Intelligence)\n🔹 **تعريف الدالة:** تُرجع جدولاً يحتوي على تواريخ تم إزاحتها للفترة السابقة أو القادمة بناءً على عدد الفترات المحددة (سنة، شهر، يوم).\n\n💻 **طريقة الكتابة (Syntax):**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **مثال عملي:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD('Calendar'[Date], -1, YEAR))`"
+        "question": "[دوال التكرار] كيف تعمل دالة SUMX التكرارية؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول صفاً بصف (Loop) وتحسب المعادلة لكل صف، وفي النهاية تجمع كل النواتج الكلية.\n\n💻 **طريقة الكتابة (Syntax):**\n`SUMX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
       },
       {
-        "question": "[دوال العلاقات والتصفية] ما الغرض من دالة USERELATIONSHIP؟",
-        "answer": "🔹 **نوع الدالة:** دوال العلاقات والتصفية المتقدمة\n🔹 **تعريف الدالة:** تقوم بتفعيل علاقة غير نشطة (Inactive Relationship) مؤقتاً وبشكل ديناميكي لحساب معادلة معينة.\n\n💻 **طريقة الكتابة (Syntax):**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **مثال عملي:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], 'Calendar'[Date]))`"
+        "question": "[دوال التكرار] اشرح آلية دالة AVERAGEX المتميزة.",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول صفاً بصف لتقييم العملية، ثم تحسب المتوسط الحسابي لجميع النواتج.\n\n💻 **طريقة الكتابة (Syntax):**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`AvgDailySales = AVERAGEX('Calendar', SUM(Sales[Amount]))`"
       },
       {
-        "question": "[دوال التصفية والسياق المتقدمة] اشرح وظيفة دالة KEEPFILTERS.",
-        "answer": "🔹 **نوع الدالة:** دوال التصفية وتعديل السياق (Context/Filter modification)\n🔹 **تعريف الدالة:** تغير طريقة تطبيق الفلاتر داخل CALCULATE، حيث تحافظ على الفلاتر الخارجية القادمة من التقرير بدلاً من حجبها أو استبدالها.\n\n💻 **طريقة الكتابة (Syntax):**\n`KEEPFILTERS(<expression>)`\n\n💡 **مثال عملي:**\n`Red Products Sales = CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Products[Color] = \"Red\"))`"
+        "question": "[دوال التكرار] ما هي وظيفة دالة MINX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تقيم التعبير الرياضي بالمرور على الجدول صفاً بصف وتُرجع أصغر قيمة ناتجة.\n\n💻 **طريقة الكتابة (Syntax):**\n`MINX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`MinNetProfit = MINX(Sales, Sales[Amount] - Sales[Cost])`"
+      },
+      {
+        "question": "[دوال التكرار] ما هي وظيفة دالة MAXX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تقيم التعبير الرياضي بالمرور على الجدول صفاً بصف وتُرجع أكبر قيمة ناتجة.\n\n💻 **طريقة الكتابة (Syntax):**\n`MAXX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`MaxNetProfit = MAXX(Sales, Sales[Amount] - Sales[Cost])`"
+      },
+      {
+        "question": "[دوال التكرار] ما وظيفة دالة COUNTX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول صفاً بصف وتحسب عدد الصفوف التي تحتوي على قيم غير فارغة أثناء تقييم التعبير.\n\n💻 **طريقة الكتابة (Syntax):**\n`COUNTX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Cnt = COUNTX(Customers, RELATED(Store[City]))`"
+      },
+      {
+        "question": "[دوال التكرار] ما وظيفة دالة COUNTAX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول صفاً بصف وتعد الصفوف غير الفارغة (تدعم النصوص والأرقام).\n\n💻 **طريقة الكتابة (Syntax):**\n`COUNTAX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`CntA = COUNTAX(Sales, Sales[PromoCode])`"
+      },
+      {
+        "question": "[دوال التكرار] ما وظيفة دالة PRODUCTX؟",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول صفاً بصف وتقوم بضرب جميع قيم التعبيرات الناتجة في بعضها البعض.\n\n💻 **طريقة الكتابة (Syntax):**\n`PRODUCTX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`CompoundRate = PRODUCTX(Rates, 1 + Rates[Interest])`"
+      },
+      {
+        "question": "[دوال التكرار] اشرح استخدام دالة CONCATENATEX التكرارية العبقرية.",
+        "answer": "🔹 **نوع الدالة:** دوال التكرار والحلقات (Iterator)\n🔹 **تعريف الدالة:** تمر على الجدول وتدمج النصوص الناتجة من كل صف وتفصل بينها بفاصل محدد من اختيارك.\n\n💻 **طريقة الكتابة (Syntax):**\n`CONCATENATEX(<table>, <expression>[, <delimiter>])`\n\n💡 **مثال عملي:**\n`CitiesList = CONCATENATEX(Stores, Stores[City], \", \")`"
+      },
+      {
+        "question": "[دوال الفلترة] اشرح القوة الكامنة لدالة CALCULATE.",
+        "answer": "🔹 **نوع الدالة:** تعديل سياق الفلترة والسياق (العمود الفقري للـ DAX)\n🔹 **تعريف الدالة:** تقوم بحساب المعادلة الرياضية بعد تعديل أو تبديل أو إضافة فلاتر جديدة تماماً على التقرير.\n\n💻 **طريقة الكتابة (Syntax):**\n`CALCULATE(<expression>[, <filter1>[, ...]])`\n\n💡 **مثال عملي:**\n`SalesUSA = CALCULATE(SUM(Sales[Amount]), Customers[Country] = \"USA\")`"
+      },
+      {
+        "question": "[دوال الفلترة] ما الذي تقوم به دالة CALCULATETABLE؟",
+        "answer": "🔹 **نوع الدالة:** تعديل سياق الفلترة (جداول)\n🔹 **تعريف الدالة:** تقوم بتقييم وتصفية جدول كامل وإرجاعه في سياق فلاتر معدل ومحدد.\n\n💻 **طريقة الكتابة (Syntax):**\n`CALCULATETABLE(<table>[, <filter1>[, ...]])`\n\n💡 **مثال عملي:**\n`US_Stores = CALCULATETABLE(Stores, Stores[Country] = \"USA\")`"
+      },
+      {
+        "question": "[دوال الفلترة] كيف تعمل دالة FILTER الشهيرة؟",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تأخذ جدولاً وتمر عليه لتصفيته وترجع جدولاً أصغر يحتوي فقط على الصفوف التي تطابق شروطك بدقة.\n\n💻 **طريقة الكتابة (Syntax):**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **مثال عملي:**\n`HighSalesRows = FILTER(Sales, Sales[Amount] > 1000)`"
+      },
+      {
+        "question": "[دوال الفلترة] ما الذي تقوم به دالة ALL الحاصدة؟",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تتجاهل وتحذف أي فلاتر أو تصفية قادمة من التقرير وترجع كامل بيانات الجدول أو العمود دون قيود.\n\n💻 **طريقة الكتابة (Syntax):**\n`ALL([<table> | <column>])`\n\n💡 **مثال عملي:**\n`GlobalSales = CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
+      },
+      {
+        "question": "[دوال الفلترة] اشرح آلية عمل دالة ALLEXCEPT الاستثنائية.",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تحذف الفلاتر عن الجدول بالكامل ما عدا الأعمدة المحددة، فتحافظ على تصفيتها.\n\n💻 **طريقة الكتابة (Syntax):**\n`ALLEXCEPT(<table>, <column>[, ...])`\n\n💡 **مثال عملي:**\n`SalesCatTotal = CALCULATE(SUM(Sales[Amount]), ALLEXCEPT(Products, Products[Category]))`"
+      },
+      {
+        "question": "[دوال الفلترة] ما الذي تقوم به دالة ALLSELECTED؟",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تحذف الفلاتر الداخلية من الجدول في التقرير مع الحفاظ على الفلاتر الخارجية القادمة من الـ Slicers.\n\n💻 **طريقة الكتابة (Syntax):**\n`ALLSELECTED([<table> | <column>])`\n\n💡 **مثال عملي:**\n`RunningTotal = CALCULATE(SUM(Sales[Amount]), ALLSELECTED(Sales))`"
+      },
+      {
+        "question": "[دوال الفلترة] ما وظيفة دالة REMOVEFILTERS؟",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تُستخدم بوضوح لإزالة الفلاتر عن أعمدة أو جداول معينة داخل دالة CALCULATE (بديل حديث لـ ALL في التصفية).\n\n💻 **طريقة الكتابة (Syntax):**\n`REMOVEFILTERS([<table> | <column>])`\n\n💡 **مثال عملي:**\n`UnfilteredSales = CALCULATE(SUM(Sales[Amount]), REMOVEFILTERS(Products[Color]))`"
+      },
+      {
+        "question": "[دوال الفلترة] اشرح الغرض من دالة KEEPFILTERS.",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتصفية\n🔹 **تعريف الدالة:** تعدل سلوك التصفية داخل CALCULATE بحيث لا تقوم بحجب أو إلغاء الفلاتر الخارجية بل تدمجها معاً.\n\n💻 **طريقة الكتابة (Syntax):**\n`KEEPFILTERS(<expression>)`\n\n💡 **مثال عملي:**\n`RedSales = CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Products[Color] = \"Red\"))`"
+      },
+      {
+        "question": "[دوال الفلترة] ما الذي تقوم به دالة VALUES؟",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والجداول\n🔹 **تعريف الدالة:** تُرجِع جدولاً من عمود واحد يحتوي على القيم الفريدة (بدون تكرار) للعمود المحدد بما فيها الصف الفارغ الديناميكي.\n\n💻 **طريقة الكتابة (Syntax):**\n`VALUES(<column_or_table>)`\n\n💡 **مثال عملي:**\n`UniqueProducts = VALUES(Products[ProductID])`"
+      },
+      {
+        "question": "[دوال الفلترة] اشرح دالة SELECTEDVALUE المهمة للتقارير الديناميكية.",
+        "answer": "🔹 **نوع الدالة:** دوال الفلترة والتفتيش\n🔹 **تعريف الدالة:** تُرجع القيمة الحالية للعمود إذا تمت تصفيتها على قيمة فريدة واحدة فقط، وإلا تُرجع قيمة بديلة أو فارغة.\n\n💻 **طريقة الكتابة (Syntax):**\n`SELECTEDVALUE(<columnName>[, <alternateResult>])`\n\n💡 **مثال عملي:**\n`CurrentCity = SELECTEDVALUE(Stores[City], \"Multiple Cities\")`"
+      },
+      {
+        "question": "[دوال الفلترة والعد] ما الذي تقوم به دالة DISTINCTCOUNT؟",
+        "answer": "🔹 **نوع الدالة:** دوال العد والتصفية\n🔹 **تعريف الدالة:** تحسب عدد القيم الفريدة والغير مكررة داخل عمود معين بالتمام.\n\n💻 **طريقة الكتابة (Syntax):**\n`DISTINCTCOUNT(<column>)`\n\n💡 **مثال عملي:**\n`UniqueCustomers = DISTINCTCOUNT(Sales[CustomerID])`"
+      },
+      {
+        "question": "[معلومات السياق] ما هي وظيفة دوال HASONEVALUE و HASONEFILTER؟",
+        "answer": "🔹 **نوع الدالة:** معلومات واستكشاف السياق\n🔹 **تعريف الدالة:** HASONEVALUE ترجع TRUE إذا كان للعمود قيمة فريدة واحدة بسياق التصفية الحالي. HASONEFILTER ترجع TRUE إذا تمت الفلترة المباشرة عليه.\n\n💻 **طريقة الكتابة (Syntax):**\n`HASONEVALUE(<columnName>)` | `HASONEFILTER(<columnName>)`\n\n💡 **مثال عملي:**\n`IsSingleProduct = HASONEVALUE(Products[ProductName])`"
+      },
+      {
+        "question": "[معلومات السياق] اشرح الفرق بين ISFILTERED و ISCROSSFILTERED.",
+        "answer": "🔹 **نوع الدالة:** معلومات واستكشاف السياق\n🔹 **تعريف الدالة:** ISFILTERED ترجع TRUE إذا كان العمود مفلتراً بشكل مباشر. ISCROSSFILTERED ترجع TRUE إذا كان الفلتر قادماً من جدول آخر عبر علاقة.\n\n💻 **طريقة الكتابة (Syntax):**\n`ISFILTERED(<columnName>)` | `ISCROSSFILTERED(<columnName>)`\n\n💡 **مثال عملي:**\n`Filtered = ISFILTERED(Products[Category])`"
+      },
+      {
+        "question": "[دوال العلاقات] ما وظيفة دالة RELATED الأساسية؟",
+        "answer": "🔹 **نوع الدالة:** دوال العلاقات (Relationships)\n🔹 **تعريف الدالة:** تجلب قيمة مقابلة من جدول آخر مرتبط بجدولك الحالي عبر علاقة نشطة وقائمة.\n\n💻 **طريقة الكتابة (Syntax):**\n`RELATED(<column>)`\n\n💡 **مثال عملي:**\n`BrandName = RELATED(Products[Brand])`"
+      },
+      {
+        "question": "[دوال العلاقات] ما وظيفة دالة RELATEDTABLE؟",
+        "answer": "🔹 **نوع الدالة:** دوال العلاقات (Relationships)\n🔹 **تعريف الدالة:** تُرجع جدولاً كاملاً من جدول مرتبط يحتوي على الصفوف المتوافقة مع سياق التصفية الحالي.\n\n💻 **طريقة الكتابة (Syntax):**\n`RELATEDTABLE(<table>)`\n\n💡 **مثال عملي:**\n`OrdersTable = RELATEDTABLE(Sales)`"
+      },
+      {
+        "question": "[دوال العلاقات] اشرح القوة الكامنة لدالة LOOKUPVALUE الحرة.",
+        "answer": "🔹 **نوع الدالة:** دوال العلاقات والبحث المباشر\n🔹 **تعريف الدالة:** تجلب قيمة من جدول آخر دون الحاجة لوجود علاقة (Relationship) رسمية بين الجدولين (تشبه VLOOKUP).\n\n💻 **طريقة الكتابة (Syntax):**\n`LOOKUPVALUE(<result_columnName>, <search_columnName>, <search_value>)`\n\n💡 **مثال عملي:**\n`Email = LOOKUPVALUE(Users[Email], Users[ID], Sales[UserID])`"
+      },
+      {
+        "question": "[دوال العلاقات] ما الغرض الهام لدالة USERELATIONSHIP؟",
+        "answer": "🔹 **نوع الدالة:** تعديل العلاقات والسياق\n🔹 **تعريف الدالة:** تفعل علاقة غير نشطة (Inactive Relationship) مؤقتاً لتُستخدم في حساب معادلة محددة داخل CALCULATE.\n\n💻 **طريقة الكتابة (Syntax):**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **مثال عملي:**\n`ShipSales = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], 'Calendar'[Date]))`"
+      },
+      {
+        "question": "[دوال العلاقات] ما الغرض من دالة CROSSFILTER؟",
+        "answer": "🔹 **نوع الدالة:** تعديل سلوك العلاقات\n🔹 **تعريف الدالة:** تغير اتجاه الفلترة بين جدولين (مثلاً من اتجاه واحد Single إلى اتجاهين Both) مؤقتاً أثناء الحساب.\n\n💻 **طريقة الكتابة (Syntax):**\n`CROSSFILTER(<columnName1>, <columnName2>, <direction>)`\n\n💡 **مثال عملي:**\n`BiDirectional = CALCULATE(COUNTROWS(Stores), CROSSFILTER(Sales[StoreID], Stores[StoreID], Both))`"
+      },
+      {
+        "question": "[دوال الترتيب] اشرح وظائف RANKX و TOPN للترتيب.",
+        "answer": "🔹 **نوع الدالة:** الترتيب والتصنيف (Ranking)\n🔹 **تعريف الدالة:** RANKX ترجع ترتيب رقم ضمن قائمة أرقام بشكل تصاعدي أو تنازلي. TOPN ترجع الجداول ذات المراتب الأولى N.\n\n💻 **طريقة الكتابة (Syntax):**\n`RANKX(<table>, <expression>[, ...])` | `TOPN(<n_value>, <table>, <order_by_expression>)`\n\n💡 **مثال عملي:**\n`ProductRank = RANKX(ALL(Products), SUM(Sales[Amount]))`"
+      },
+      {
+        "question": "[دوال نصوص متقدمة] ما هي فائدة دالتي UNICHAR و UNICODE؟",
+        "answer": "🔹 **نوع الدالة:** دوال نصوص متقدمة ورموز\n🔹 **تعريف الدالة:** UNICHAR ترجع رمز اليونيكود المقابل للرقم (لرسم أيقونات ومؤشرات كالأسهُم والنجوم ديناميكياً داخل التقارير).\n\n💻 **طريقة الكتابة (Syntax):**\n`UNICHAR(<number>)` | `UNICODE(<text>)`\n\n💡 **مثال عملي:**\n`Icon = UNICHAR(11088)`"
       }
     ]
   }
