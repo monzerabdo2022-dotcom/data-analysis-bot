@@ -1,142 +1,138 @@
 {
   "en": {
-    "DAX": {
-      "Easy": [
-        {
-          "question": "What is the purpose of the CALCULATE function?",
-          "answer": "🔹 **Definition:** Evaluates an expression in a context that is modified by the specified filters.\n\n💻 **Syntax:**\n`CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]])`\n\n💡 **Example:**\n`Total Sales Egypt = CALCULATE(SUM(Sales[Amount]), Sales[Country] = \"Egypt\")`"
-        },
-        {
-          "question": "What does the SUM function do in DAX?",
-          "answer": "🔹 **Definition:** Adds all the numbers in a column.\n\n💻 **Syntax:**\n`SUM(<column>)`\n\n💡 **Example:**\n`Total Quantity = SUM(Sales[Quantity])`"
-        },
-        {
-          "question": "What is the use of the RELATED function?",
-          "answer": "🔹 **Definition:** Returns a related value from another table, provided there is a relationship between the tables.\n\n💻 **Syntax:**\n`RELATED(<column>)`\n\n💡 **Example:**\n`Store Type = RELATED(Store[Type])`"
-        },
-        {
-          "question": "What does the DIVIDE function do?",
-          "answer": "🔹 **Definition:** Performs division and automatically handles division-by-zero errors by returning a blank or alternative value.\n\n💻 **Syntax:**\n`DIVIDE(<numerator>, <denominator>[, <alternateresult>])`\n\n💡 **Example:**\n`Profit Margin = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]), 0)`"
-        },
-        {
-          "question": "What is the purpose of the ALL function?",
-          "answer": "🔹 **Definition:** Returns all rows in a table, or all values in a column, ignoring any filters that might have been applied.\n\n💻 **Syntax:**\n`ALL([<table> | <column>[, <column>[, ...]]])`\n\n💡 **Example:**\n`All Sales Share = SUM(Sales[Amount]) / CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
-        }
-      ],
-      "Medium": [
-        {
-          "question": "What is the purpose of the SUMX function?",
-          "answer": "🔹 **Definition:** Returns the sum of an expression evaluated for each row in a table (Iterator function).\n\n💻 **Syntax:**\n`SUMX(<table>, <expression>)`\n\n💡 **Example:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
-        },
-        {
-          "question": "How does the FILTER function work?",
-          "answer": "🔹 **Definition:** Returns a table that represents a subset of another table or expression based on specific conditions.\n\n💻 **Syntax:**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **Example:**\n`High Value Sales = CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Amount] > 1000))`"
-        },
-        {
-          "question": "What is the use of the VALUES function?",
-          "answer": "🔹 **Definition:** Returns a one-column table that contains the unique (distinct) values from the specified column.\n\n💻 **Syntax:**\n`VALUES(<column_or_table>)`\n\n💡 **Example:**\n`Unique Customers Count = COUNTROWS(VALUES(Sales[CustomerID]))`"
-        },
-        {
-          "question": "What does the DATEADD function do in time intelligence?",
-          "answer": "🔹 **Definition:** Returns a table that contains a column of dates shifted either forward or backward in time by the specified number of intervals.\n\n💻 **Syntax:**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **Example:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD(Calendar[Date], -1, YEAR))`"
-        },
-        {
-          "question": "What is the purpose of the RELATEDTABLE function?",
-          "answer": "🔹 **Definition:** Evaluates a table expression in a context modified by the given filters and returns a related table.\n\n💻 **Syntax:**\n`RELATEDTABLE(<table>)`\n\n💡 **Example:**\n`Internet Orders Count = COUNTROWS(RELATEDTABLE(InternetSales))`"
-        }
-      ],
-      "Hard": [
-        {
-          "question": "How does the EARLIER function work in nested contexts?",
-          "answer": "🔹 **Definition:** Returns the current value of the specified column in the outer evaluation pass of the mentioned column.\n\n💻 **Syntax:**\n`EARLIER(<column>[, <number>])`\n\n💡 **Example:**\n`Row Rank = COUNTROWS(FILTER(Sales, Sales[Amount] > EARLIER(Sales[Amount]))) + 1`"
-        },
-        {
-          "question": "What is the purpose of the KEEPFILTERS function?",
-          "answer": "🔹 **Definition:** Modifies how filters are applied while evaluating a CALCULATE or CALCULATETABLE function, keeping existing filters instead of overriding them.\n\n💻 **Syntax:**\n`KEEPFILTERS(<expression>)`\n\n💡 **Example:**\n`CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Product[Color] = \"Red\"))`"
-        },
-        {
-          "question": "Explain the use of the AVERAGEX function.",
-          "answer": "🔹 **Definition:** Calculates the average (arithmetic mean) of a set of expressions evaluated over a table.\n\n💻 **Syntax:**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **Example:**\n`Avg Order Value = AVERAGEX(Customers, SUMX(RELATEDTABLE(Sales), Sales[Amount]))`"
-        },
-        {
-          "question": "What is the purpose of the USERELATIONSHIP function?",
-          "answer": "🔹 **Definition:** Specifies an inactive relationship to be used in a specific DAX calculation.\n\n💻 **Syntax:**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **Example:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], Calendar[Date]))`"
-        },
-        {
-          "question": "How does the VAR (Variables) syntax improve performance?",
-          "answer": "🔹 **Definition:** Stores the result of an expression as a named variable, which can then be passed as an argument to other measure expressions. It improves performance because the expression is evaluated only once.\n\n💻 **Syntax:**\n`VAR <name> = <expression> RETURN <expression>`\n\n💡 **Example:**\n`VAR TotalSales = SUM(Sales[Amount]) RETURN IF(TotalSales > 100000, \"High\", \"Low\")`"
-        }
-      ]
-    }
+    "Easy": [
+      {
+        "question": "What is the purpose of the CALCULATE function?",
+        "answer": "🔹 **Definition:** Evaluates an expression in a context that is modified by the specified filters.\n\n💻 **Syntax:**\n`CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]])`\n\n💡 **Example:**\n`Total Sales Egypt = CALCULATE(SUM(Sales[Amount]), Sales[Country] = \"Egypt\")`"
+      },
+      {
+        "question": "What does the SUM function do in DAX?",
+        "answer": "🔹 **Definition:** Adds all the numbers in a column.\n\n💻 **Syntax:**\n`SUM(<column>)`\n\n💡 **Example:**\n`Total Quantity = SUM(Sales[Quantity])`"
+      },
+      {
+        "question": "What is the use of the RELATED function?",
+        "answer": "🔹 **Definition:** Returns a related value from another table, provided there is a relationship between the tables.\n\n💻 **Syntax:**\n`RELATED(<column>)`\n\n💡 **Example:**\n`Store Type = RELATED(Store[Type])`"
+      },
+      {
+        "question": "What does the DIVIDE function do?",
+        "answer": "🔹 **Definition:** Performs division and automatically handles division-by-zero errors by returning a blank or alternative value.\n\n💻 **Syntax:**\n`DIVIDE(<numerator>, <denominator>[, <alternateresult>])`\n\n💡 **Example:**\n`Profit Margin = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]), 0)`"
+      },
+      {
+        "question": "What is the purpose of the ALL function?",
+        "answer": "🔹 **Definition:** Returns all rows in a table, or all values in a column, ignoring any filters that might have been applied.\n\n💻 **Syntax:**\n`ALL([<table> | <column>[, <column>[, ...]]])`\n\n💡 **Example:**\n`All Sales Share = SUM(Sales[Amount]) / CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
+      }
+    ],
+    "Medium": [
+      {
+        "question": "What is the purpose of the SUMX function?",
+        "answer": "🔹 **Definition:** Returns the sum of an expression evaluated for each row in a table (Iterator function).\n\n💻 **Syntax:**\n`SUMX(<table>, <expression>)`\n\n💡 **Example:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
+      },
+      {
+        "question": "How does the FILTER function work?",
+        "answer": "🔹 **Definition:** Returns a table that represents a subset of another table or expression based on specific conditions.\n\n💻 **Syntax:**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **Example:**\n`High Value Sales = CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Amount] > 1000))`"
+      },
+      {
+        "question": "What is the use of the VALUES function?",
+        "answer": "🔹 **Definition:** Returns a one-column table that contains the unique (distinct) values from the specified column.\n\n💻 **Syntax:**\n`VALUES(<column_or_table>)`\n\n💡 **Example:**\n`Unique Customers Count = COUNTROWS(VALUES(Sales[CustomerID]))`"
+      },
+      {
+        "question": "What does the DATEADD function do in time intelligence?",
+        "answer": "🔹 **Definition:** Returns a table that contains a column of dates shifted either forward or backward in time by the specified number of intervals.\n\n💻 **Syntax:**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **Example:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD(Calendar[Date], -1, YEAR))`"
+      },
+      {
+        "question": "What is the purpose of the RELATEDTABLE function?",
+        "answer": "🔹 **Definition:** Evaluates a table expression in a context modified by the given filters and returns a related table.\n\n💻 **Syntax:**\n`RELATEDTABLE(<table>)`\n\n💡 **Example:**\n`Internet Orders Count = COUNTROWS(RELATEDTABLE(InternetSales))`"
+      }
+    ],
+    "Hard": [
+      {
+        "question": "How does the EARLIER function work in nested contexts?",
+        "answer": "🔹 **Definition:** Returns the current value of the specified column in the outer evaluation pass of the mentioned column.\n\n💻 **Syntax:**\n`EARLIER(<column>[, <number>])`\n\n💡 **Example:**\n`Row Rank = COUNTROWS(FILTER(Sales, Sales[Amount] > EARLIER(Sales[Amount]))) + 1`"
+      },
+      {
+        "question": "What is the purpose of the KEEPFILTERS function?",
+        "answer": "🔹 **Definition:** Modifies how filters are applied while evaluating a CALCULATE or CALCULATETABLE function, keeping existing filters instead of overriding them.\n\n💻 **Syntax:**\n`KEEPFILTERS(<expression>)`\n\n💡 **Example:**\n`CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Product[Color] = \"Red\"))`"
+      },
+      {
+        "question": "Explain the use of the AVERAGEX function.",
+        "answer": "🔹 **Definition:** Calculates the average (arithmetic mean) of a set of expressions evaluated over a table.\n\n💻 **Syntax:**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **Example:**\n`Avg Order Value = AVERAGEX(Customers, SUMX(RELATEDTABLE(Sales), Sales[Amount]))`"
+      },
+      {
+        "question": "What is the purpose of the USERELATIONSHIP function?",
+        "answer": "🔹 **Definition:** Specifies an inactive relationship to be used in a specific DAX calculation.\n\n💻 **Syntax:**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **Example:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], Calendar[Date]))`"
+      },
+      {
+        "question": "How does the VAR (Variables) syntax improve performance?",
+        "answer": "🔹 **Definition:** Stores the result of an expression as a named variable, which can then be passed as an argument to other measure expressions. It improves performance because the expression is evaluated only once.\n\n💻 **Syntax:**\n`VAR <name> = <expression> RETURN <expression>`\n\n💡 **Example:**\n`VAR TotalSales = SUM(Sales[Amount]) RETURN IF(TotalSales > 100000, \"High\", \"Low\")`"
+      }
+    ]
   },
   "ar": {
-    "DAX": {
-      "Easy": [
-        {
-          "question": "ما هي وظيفة دالة CALCULATE في لغة DAX؟",
-          "answer": "🔹 **تعريف الدالة:** تقوم بحساب المعادلة وتعديل سياق الفلاتر (التصفية) بناءً على الشروط الجديدة المحددة.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]])`\n\n💡 **مثال عملي:**\n`Total Sales Egypt = CALCULATE(SUM(Sales[Amount]), Sales[Country] = \"Egypt\")`"
-        },
-        {
-          "question": "ما الذي تقوم به دالة SUM في لغة DAX؟",
-          "answer": "🔹 **تعريف الدالة:** تقوم بجمع كل الأرقام الموجودة في عمود معين.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`SUM(<column>)`\n\n💡 **مثال عملي:**\n`Total Quantity = SUM(Sales[Quantity])`"
-        },
-        {
-          "question": "ما هي فائدة استخدام دالة RELATED؟",
-          "answer": "🔹 **تعريف الدالة:** تجلب قيمة مرتبطة من جدول آخر، بشرط وجود علاقة (Relationship) مسبقة بين الجدولين.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`RELATED(<column>)`\n\n💡 **مثال عملي:**\n`Store Type = RELATED(Store[Type])`"
-        },
-        {
-          "question": "ما هي وظيفة دالة DIVIDE؟",
-          "answer": "🔹 **تعريف الدالة:** تقوم بعملية القسمة وتتعامل تلقائياً مع أخطاء القسمة على صفر، حيث ترجع قيمة فارغة أو قيمة بديلة تحددها أنت.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`DIVIDE(<numerator>, <denominator>[, <alternateresult>])`\n\n💡 **مثال عملي:**\n`Profit Margin = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]), 0)`"
-        },
-        {
-          "question": "ما هو الغرض من دالة ALL؟",
-          "answer": "🔹 **تعريف الدالة:** ترجع جميع الصفوف في الجدول أو القيم في العمود، متجاهلة أي فلاتر أو تصفية قد تم تطبيقها في التقرير.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`ALL([<table> | <column>[, <column>[, ...]]])`\n\n💡 **مثال عملي:**\n`All Sales Share = SUM(Sales[Amount]) / CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
-        }
-      ],
-      "Medium": [
-        {
-          "question": "ما الغرض من استخدام دالة SUMX في الـ DAX؟",
-          "answer": "🔹 **تعريف الدالة:** دالة تكرارية (Iterator)، تقوم بالمرور على الجدول صفاً بصف لحساب المعادلة لكل صف، وفي النهاية تجمع النواتج الكلية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`SUMX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
-        },
-        {
-          "question": "كيف تعمل دالة FILTER في الـ DAX؟",
-          "answer": "🔹 **تعريف الدالة:** ترجع جدولاً يمثل جزءاً مصغراً من جدول آخر بناءً على شروط تصفية محددة، وغالباً تستخدم داخل CALCULATE.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **مثال عملي:**\n`High Value Sales = CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Amount] > 1000))`"
-        },
-        {
-          "question": "ما هي أهمية استخدام دالة VALUES؟",
-          "answer": "🔹 **تعريف الدالة:** ترجع جدولاً من عمود واحد يحتوي على القيم الفريدة (بدون تكرار) من العمود المحدد.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`VALUES(<column_or_table>)`\n\n💡 **مثال عملي:**\n`Unique Customers Count = COUNTROWS(VALUES(Sales[CustomerID]))`"
-        },
-        {
-          "question": "ماذا تفعل دالة DATEADD في ذكاء الوقت (Time Intelligence)؟",
-          "answer": "🔹 **تعريف الدالة:** ترجع جدولاً يحتوي على عمود من التواريخ المزاحة إما للأمام أو للخلف في الوقت بناءً على الفترة المحددة (يوم، شهر، سنة).\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **مثال عملي:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD(Calendar[Date], -1, YEAR))`"
-        },
-        {
-          "question": "ما هو الغرض من دالة RELATEDTABLE؟",
-          "answer": "🔹 **تعريف الدالة:** تقوم بتقييم تعبير الجدول في سياق معدل بواسطة فلاتر معينة وترجع جدولاً كاملاً مرتبطاً بالجدول الحالي.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`RELATEDTABLE(<table>)`\n\n💡 **مثال عملي:**\n`Internet Orders Count = COUNTROWS(RELATEDTABLE(InternetSales))`"
-        }
-      ],
-      "Hard": [
-        {
-          "question": "كيف تعمل دالة EARLIER في سياقات التقييم المتداخلة؟",
-          "answer": "🔹 **تعريف الدالة:** ترجع القيمة الحالية للعمود المحدد من حلقة التكرار الخارجية (Outer loop)، وتُستخدم بكثرة في حساب التصنيفات والمجاميع التراكمية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`EARLIER(<column>[, <number>])`\n\n💡 **مثال عملي:**\n`Row Rank = COUNTROWS(FILTER(Sales, Sales[Amount] > EARLIER(Sales[Amount]))) + 1`"
-        },
-        {
-          "question": "ما هو الغرض من استخدام دالة KEEPFILTERS؟",
-          "answer": "🔹 **تعريف الدالة:** تعدل طريقة تطبيق الفلاتر في دالة CALCULATE، حيث تقوم بدمج الفلاتر الحالية والحفاظ عليها بدلاً من استبدالها بالكامل.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`KEEPFILTERS(<expression>)`\n\n💡 **مثال عملي:**\n`CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Product[Color] = Red))`"
-        },
-        {
-          "question": "اشرح آلية عمل واستخدام دالة AVERAGEX.",
-          "answer": "🔹 **تعريف الدالة:** تقوم بحساب المتوسط الحسابي لمجموعة من التعبيرات والمعادلات التي يتم تقييمها مراراً وتكراراً على جدول صفاً بصف.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Avg Order Value = AVERAGEX(Customers, SUMX(RELATEDTABLE(Sales), Sales[Amount]))`"
-        },
-        {
-          "question": "ما هي الفائدة الأساسية من دالة USERELATIONSHIP؟",
-          "answer": "🔹 **تعريف الدالة:** تمكنك من تفعيل واستخدام علاقة غير نشطة (Inactive Relationship) بين جدولين في عملية حسابية محددة دون تغيير العلاقة الأساسية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **مثال عملي:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], Calendar[Date]))`"
-        },
-        {
-          "question": "كيف يساهم استخدام المتغيرات VAR في تحسين أداء الأكواد وسرعتها؟",
-          "answer": "🔹 **تعريف الدالة:** تتيح لك تخزين نتيجة معادلة معينة داخل متغير باسم مخصص، ثم استدعاء هذا المتغير لاحقاً. هذا يحسن الأداء جداً لأن السيرفر يحسب المعادلة مرة واحدة فقط بدلاً من إعادة حسابها في كل سطر.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`VAR <name> = <expression> RETURN <expression>`\n\n💡 **مثال عملي:**\n`VAR TotalSales = SUM(Sales[Amount]) RETURN IF(TotalSales > 100000, \"High\", \"Low\")`"
-        }
-      ]
-    }
+    "Easy": [
+      {
+        "question": "ما هي وظيفة دالة CALCULATE في لغة DAX؟",
+        "answer": "🔹 **تعريف الدالة:** تقوم بحساب المعادلة وتعديل سياق الفلاتر (التصفية) بناءً على الشروط الجديدة المحددة.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]])`\n\n💡 **مثال عملي:**\n`Total Sales Egypt = CALCULATE(SUM(Sales[Amount]), Sales[Country] = \"Egypt\")`"
+      },
+      {
+        "question": "ما الذي تقوم به دالة SUM في لغة DAX؟",
+        "answer": "🔹 **تعريف الدالة:** تقوم بجمع كل الأرقام الموجودة في عمود معين.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`SUM(<column>)`\n\n💡 **مثال عملي:**\n`Total Quantity = SUM(Sales[Quantity])`"
+      },
+      {
+        "question": "ما هي فائدة استخدام دالة RELATED؟",
+        "answer": "🔹 **تعريف الدالة:** تجلب قيمة مرتبطة من جدول آخر، بشرط وجود علاقة (Relationship) مسبقة بين الجدولين.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`RELATED(<column>)`\n\n💡 **مثال عملي:**\n`Store Type = RELATED(Store[Type])`"
+      },
+      {
+        "question": "ما هي وظيفة دالة DIVIDE؟",
+        "answer": "🔹 **تعريف الدالة:** تقوم بعملية القسمة وتتعامل تلقائياً مع أخطاء القسمة على صفر، حيث ترجع قيمة فارغة أو قيمة بديلة تحددها أنت.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`DIVIDE(<numerator>, <denominator>[, <alternateresult>])`\n\n💡 **مثال عملي:**\n`Profit Margin = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]), 0)`"
+      },
+      {
+        "question": "ما هو الغرض من دالة ALL؟",
+        "answer": "🔹 **تعريف الدالة:** ترجع جميع الصفوف في الجدول أو القيم في العمود، متجاهلة أي فلاتر أو تصفية قد تم تطبيقها في التقرير.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`ALL([<table> | <column>[, <column>[, ...]]])`\n\n💡 **مثال عملي:**\n`All Sales Share = SUM(Sales[Amount]) / CALCULATE(SUM(Sales[Amount]), ALL(Sales))`"
+      }
+    ],
+    "Medium": [
+      {
+        "question": "ما الغرض من استخدام دالة SUMX في الـ DAX؟",
+        "answer": "🔹 **تعريف الدالة:** دالة تكرارية (Iterator)، تقوم بالمرور على الجدول صفاً بصف لحساب المعادلة لكل صف، وفي النهاية تجمع النواتج الكلية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`SUMX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[Price])`"
+      },
+      {
+        "question": "كيف تعمل دالة FILTER في الـ DAX؟",
+        "answer": "🔹 **تعريف الدالة:** ترجع جدولاً يمثل جزءاً مصغراً من جدول آخر بناءً على شروط تصفية محددة، وغالباً تستخدم داخل CALCULATE.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`FILTER(<table>, <filter_expression>)`\n\n💡 **مثال عملي:**\n`High Value Sales = CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Amount] > 1000))`"
+      },
+      {
+        "question": "ما هي أهمية استخدام دالة VALUES؟",
+        "answer": "🔹 **تعريف الدالة:** ترجع جدولاً من عمود واحد يحتوي على القيم الفريدة (بدون تكرار) من العمود المحدد.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`VALUES(<column_or_table>)`\n\n💡 **مثال عملي:**\n`Unique Customers Count = COUNTROWS(VALUES(Sales[CustomerID]))`"
+      },
+      {
+        "question": "ماذا تفعل دالة DATEADD في ذكاء الوقت (Time Intelligence)؟",
+        "answer": "🔹 **تعريف الدالة:** ترجع جدولاً يحتوي على عمود من التواريخ المزاحة إما للأمام أو للخلف في الوقت بناءً على الفترة المحددة (يوم، شهر، سنة).\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`DATEADD(<dates>, <number_of_intervals>, <interval>)`\n\n💡 **مثال عملي:**\n`Sales Last Year = CALCULATE(SUM(Sales[Amount]), DATEADD(Calendar[Date], -1, YEAR))`"
+      },
+      {
+        "question": "ما هو الغرض من دالة RELATEDTABLE؟",
+        "answer": "🔹 **تعريف الدالة:** تقوم بتقييم تعبير الجدول في سياق معدل بواسطة فلاتر معينة وترجع جدولاً كاملاً مرتبطاً بالجدول الحالي.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`RELATEDTABLE(<table>)`\n\n💡 **مثال عملي:**\n`Internet Orders Count = COUNTROWS(RELATEDTABLE(InternetSales))`"
+      }
+    ],
+    "Hard": [
+      {
+        "question": "كيف تعمل دالة EARLIER في سياقات التقييم المتداخلة؟",
+        "answer": "🔹 **تعريف الدالة:** ترجع القيمة الحالية للعمود المحدد من حلقة التكرار الخارجية (Outer loop)، وتُستخدم بكثرة في حساب التصنيفات والمجاميع التراكمية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`EARLIER(<column>[, <number>])`\n\n💡 **مثال عملي:**\n`Row Rank = COUNTROWS(FILTER(Sales, Sales[Amount] > EARLIER(Sales[Amount]))) + 1`"
+      },
+      {
+        "question": "ما هو الغرض من استخدام دالة KEEPFILTERS؟",
+        "answer": "🔹 **تعريف الدالة:** تعدل طريقة تطبيق الفلاتر في دالة CALCULATE، حيث تقوم بدمج الفلاتر الحالية والحفاظ عليها بدلاً من استبدالها بالكامل.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`KEEPFILTERS(<expression>)`\n\n💡 **مثال عملي:**\n`CALCULATE(SUM(Sales[Amount]), KEEPFILTERS(Product[Color] = \"Red\"))`"
+      },
+      {
+        "question": "اشرح آلية عمل واستخدام دالة AVERAGEX.",
+        "answer": "🔹 **تعريف الدالة:** تقوم بحساب المتوسط الحسابي لمجموعة من التعبيرات والمعادلات التي يتم تقييمها مراراً وتكراراً على جدول صفاً بصف.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`AVERAGEX(<table>, <expression>)`\n\n💡 **مثال عملي:**\n`Avg Order Value = AVERAGEX(Customers, SUMX(RELATEDTABLE(Sales), Sales[Amount]))`"
+      },
+      {
+        "question": "ما هي الفائدة الأساسية من دالة USERELATIONSHIP؟",
+        "answer": "🔹 **تعريف الدالة:** تمكنك من تفعيل واستخدام علاقة غير نشطة (Inactive Relationship) بين جدولين في عملية حسابية محددة دون تغيير العلاقة الأساسية.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`USERELATIONSHIP(<columnName1>, <columnName2>)`\n\n💡 **مثال عملي:**\n`Sales by Ship Date = CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[ShipDate], Calendar[Date]))`"
+      },
+      {
+        "question": "كيف يساهم استخدام المتغيرات VAR في تحسين أداء الأكواد وسرعتها؟",
+        "answer": "🔹 **تعريف الدالة:** تتيح لك تخزين نتيجة معادلة معينة داخل متغير باسم مخصص، ثم استدعاء هذا المتغير لاحقاً. هذا يحسن الأداء جداً لأن السيرفر يحسب المعادلة مرة واحدة فقط بدلاً من إعادة حسابها في كل سطر.\n\n💻 **طريقة كتابة الدالة (Syntax):**\n`VAR <name> = <expression> RETURN <expression>`\n\n💡 **مثال عملي:**\n`VAR TotalSales = SUM(Sales[Amount]) RETURN IF(TotalSales > 100000, \"High\", \"Low\")`"
+      }
+    ]
   }
 }
