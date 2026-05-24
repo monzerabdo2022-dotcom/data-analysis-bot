@@ -11,12 +11,26 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 1. تحميل ملف الأسئلة الأساسي القديم (SQL, Excel, Power BI) دون مسح أي شيء
 with open(os.path.join(BASE_DIR, 'questions.json'), 'r', encoding='utf-8') as f:
     QUESTIONS = json.load(f)
+
+# 2. تحميل ملف أسئلة الـ DAX الجديد تلقائياً
+DAX_QUESTIONS = {}
+dax_path = os.path.join(BASE_DIR, 'dax_questions.json')
+if os.path.exists(dax_path):
+    with open(dax_path, 'r', encoding='utf-8') as f:
+        DAX_QUESTIONS = json.load(f)
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8818213009:AAE0A7q_LB-sD9rFIKjcvnwdfygMTeexx7U")
 
 user_states = {}
+
+def get_questions_list(lang, topic, difficulty):
+    if topic == "DAX":
+        return DAX_QUESTIONS.get(lang, {}).get(topic, {}).get(difficulty, [])
+    return QUESTIONS.get(lang, {}).get(topic, {}).get(difficulty, [])
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
@@ -33,6 +47,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if user_id not in user_states:
         user_states[user_id] = {'lang': 'en', 'topic': None, 'difficulty': None, 'q_index': 0}
     data = query.data
+    
     if data.startswith('lang_'):
         user_states[user_id]['lang'] = data.split('_')[1]
         await send_topic_selection(query, user_id)
@@ -65,7 +80,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def send_topic_selection(query, user_id):
     lang = user_states[user_id]['lang']
     text = "Please choose a topic:" if lang == 'en' else "الرجاء اختيار الموضوع:"
-    topics = QUESTIONS[lang].keys()
+    
+    # جلب المواضيع القديمة وإضافة زر الـ DAX تلقائياً في القائمة
+    topics = list(QUESTIONS[lang].keys())
+    if "DAX" not in topics:
+        topics.append("DAX")
+            
     keyboard = [[InlineKeyboardButton(topic, callback_data=f'topic_{topic}')] for topic in topics]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await query.edit_message_text(text=text, reply_markup=reply_markup)
@@ -74,7 +94,12 @@ async def send_difficulty_selection(query, user_id):
     lang = user_states[user_id]['lang']
     topic = user_states[user_id]['topic']
     text = f"Choose difficulty for {topic}:" if lang == 'en' else f"اختر مستوى الصعوبة لـ {topic}:"
-    difficulties = QUESTIONS[lang][topic].keys()
+    
+    if topic == "DAX":
+        difficulties = ["Easy", "Medium", "Hard"]
+    else:
+        difficulties = QUESTIONS[lang][topic].keys()
+        
     keyboard = [[InlineKeyboardButton(diff, callback_data=f'diff_{diff}')] for diff in difficulties]
     keyboard.append([InlineKeyboardButton("🔙 Back" if lang == 'en' else "🔙 رجوع", callback_data='back_to_topics')])
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -85,15 +110,19 @@ async def send_question(query, user_id):
     topic = user_states[user_id]['topic']
     difficulty = user_states[user_id]['difficulty']
     q_index = user_states[user_id]['q_index']
-    questions_list = QUESTIONS[lang][topic][difficulty]
+    
+    questions_list = get_questions_list(lang, topic, difficulty)
+    
     if not questions_list:
         text = "No questions available." if lang == 'en' else "لا توجد أسئلة متاحة."
         keyboard = [[InlineKeyboardButton("🔙 Back" if lang == 'en' else "🔙 رجوع", callback_data='back_to_difficulty')]]
         await query.edit_message_text(text=text, reply_markup=InlineKeyboardMarkup(keyboard))
         return
+        
     if q_index >= len(questions_list):
         user_states[user_id]['q_index'] = 0
         q_index = 0
+        
     question_data = questions_list[q_index]
     question_text = question_data['question']
     text = f"📌 {topic} | {difficulty}\n\n❓ Question {q_index + 1}/{len(questions_list)}:\n\n{question_text}" if lang == 'en' else \
@@ -112,11 +141,14 @@ async def show_answer(query, user_id):
     topic = user_states[user_id]['topic']
     difficulty = user_states[user_id]['difficulty']
     q_index = user_states[user_id]['q_index']
-    question_data = QUESTIONS[lang][topic][difficulty][q_index]
+    
+    questions_list = get_questions_list(lang, topic, difficulty)
+    question_data = questions_list[q_index]
     question_text = question_data['question']
     answer_text = question_data['answer']
-    text = f"📌 {topic} | {difficulty}\n\n❓ Question {q_index + 1}/{len(QUESTIONS[lang][topic][difficulty])}:\n\n{question_text}\n\n✅ Answer:\n\n{answer_text}" if lang == 'en' else \
-           f"📌 {topic} | {difficulty}\n\n❓ سؤال {q_index + 1}/{len(QUESTIONS[lang][topic][difficulty])}:\n\n{question_text}\n\n✅ الإجابة:\n\n{answer_text}"
+    
+    text = f"📌 {topic} | {difficulty}\n\n❓ Question {q_index + 1}/{len(questions_list)}:\n\n{question_text}\n\n✅ Answer:\n\n{answer_text}" if lang == 'en' else \
+           f"📌 {topic} | {difficulty}\n\n❓ سؤال {q_index + 1}/{len(questions_list)}:\n\n{question_text}\n\n✅ الإجابة:\n\n{answer_text}"
     keyboard = [
         [InlineKeyboardButton("⬅️", callback_data='prev_question'),
          InlineKeyboardButton("➡️", callback_data='next_question')],
@@ -146,6 +178,7 @@ def main() -> None:
         poll_interval=1.0,
         timeout=30
     )
+
 import os
 from flask import Flask
 from threading import Thread
