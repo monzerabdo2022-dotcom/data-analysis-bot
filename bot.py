@@ -27,9 +27,10 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "8818213009:AAE0A7q_LB-sD9rFIKjcvnwdfygM
 
 user_states = {}
 
+# الدالة المظبوطة لقراءة ملف الداكس الجديد مباشرة وبدون تضارب
 def get_questions_list(lang, topic, difficulty):
     if topic == "DAX":
-        return DAX_QUESTIONS.get(lang, {}).get(topic, {}).get(difficulty, [])
+        return DAX_QUESTIONS.get(lang, {}).get(difficulty, [])
     return QUESTIONS.get(lang, {}).get(topic, {}).get(difficulty, [])
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -81,7 +82,6 @@ async def send_topic_selection(query, user_id):
     lang = user_states[user_id]['lang']
     text = "Please choose a topic:" if lang == 'en' else "الرجاء اختيار الموضوع:"
     
-    # جلب المواضيع القديمة وإضافة زر الـ DAX تلقائياً في القائمة
     topics = list(QUESTIONS[lang].keys())
     if "DAX" not in topics:
         topics.append("DAX")
