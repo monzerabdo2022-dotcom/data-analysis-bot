@@ -1,9 +1,12 @@
 import json
 import os
 import logging
+from threading import Thread
+from flask import Flask
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes
 
+# إعدادات الـ Logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
@@ -12,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# 1. تحميل ملف الأسئلة الأساسي القديم (SQL, Excel, Power BI) دون مسح أي شيء
+# 1. تحميل ملف الأسئلة الأساسي القديم
 with open(os.path.join(BASE_DIR, 'questions.json'), 'r', encoding='utf-8') as f:
     QUESTIONS = json.load(f)
 
@@ -27,7 +30,24 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "8818213009:AAE0A7q_LB-sD9rFIKjcvnwdfygM
 
 user_states = {}
 
-# الدالة المظبوطة لقراءة ملف الداكس الجديد مباشرة وبدون تضارب
+# سيرفر الويب لعدم نوم البوت (Flask)
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is running 24/7!"
+
+def run_web_server():
+    # Render بيمرر بورت ديناميكي، وإذا مش موجود بنشغل على 8080
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port)
+
+def keep_alive():
+    # استخدام daemon=True يضمن استقرار السيرفر في الخلفية مع البوت
+    t = Thread(target=run_web_server, daemon=True)
+    t.start()
+
+# قراءة الأسئلة
 def get_questions_list(lang, topic, difficulty):
     if topic == "DAX":
         return DAX_QUESTIONS.get(lang, {}).get(difficulty, [])
@@ -179,23 +199,8 @@ def main() -> None:
         timeout=30
     )
 
-import os
-from flask import Flask
-from threading import Thread
-
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "Bot is running!"
-
-def run():
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
-
-keep_alive()
 if __name__ == '__main__':
+    # تشغيل سيرفر الويب أولاً بشكل صحيح ومستقر
+    keep_alive()
+    # ثم تشغيل البوت الأساسي ليتولى الـ Event Loop بالكامل
     main()
